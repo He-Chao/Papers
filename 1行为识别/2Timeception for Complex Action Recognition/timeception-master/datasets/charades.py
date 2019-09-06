@@ -448,12 +448,11 @@ def __get_frame_names_untrimmed_from_csv_file_for_ordered(annot_text_path, n_fra
 
 def __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_text_path, n_frames_per_video):
     '''
-
+    #video_frames_dict_tr = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_tr_text_path, n_frames_per_video)
     :param annot_text_path: './data/Charades/annotation/Charades_v1_train.csv'
     :param n_frames_per_video: 256
     :return: 返回采样后的视频帧词典
     '''
-    #video_frames_dict_tr = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_tr_text_path, n_frames_per_video)
     count = 0
     video_frames_dict = dict()
     root_path = c.data_root_path

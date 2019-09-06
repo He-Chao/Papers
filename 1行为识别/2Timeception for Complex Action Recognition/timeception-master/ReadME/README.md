@@ -1,11 +1,11 @@
 # Timeception for Complex Action Recognition
 
-![Keras](./data/assets/badge-keras.png "Keras") ![Keras](./data/assets/badge-tensorflow.png "TensorFlow") ![Keras](./data/assets/badge-pytorch.png "PyTorch")
+![badge-tensorflow](README.assets/badge-tensorflow.png)![badge-pytorch](README.assets/badge-pytorch.png)![Keras](README.assets/badge-keras.png)
 
 This code repository is the implementation for the paper [Timeception for Complex Action Recognition](https://arxiv.org/abs/1812.01289).
 We provide the implementation for 3 different libraries: `keras`, `tensorflow` and `pytorch`.
 
-![Timeception for Complex Action Recognition](./data/assets/timeception_layer.jpg "Timeception Block")
+![timeception_layer](README.assets/timeception_layer.jpg)
 
 # 预处理
 
@@ -266,7 +266,9 @@ print (tensor.size())
 
 > 作者在实验过程中发现多核的不同的kernel_size与不同的dilation rates在实验性能上的相差无几甚至没有改变。说明二者的作用相似。但是相对来说不同的dilation rates更节省参数量，即空洞卷积效果更佳。
 
-# 帧采样
+# 预处理的具体操作：
+
+## 帧采样
 
 - 路径：
 
@@ -287,7 +289,7 @@ print (tensor.size())
 
   采样过后视频帧的名字。
 
-# 特征提取
+## 特征提取
 
 - 路径：
 
