@@ -26,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/experiments/train_pytorch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="522">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="e#1502#1540#0" expanded="true" />
               </folding>
@@ -54,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/nets/timeception_pytorch.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="486">
-              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="e#970#1008#0" expanded="true" />
               </folding>
@@ -86,13 +86,46 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/datasets/charades.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13698">
-              <caret line="787" column="45" lean-forward="true" selection-start-line="787" selection-start-column="45" selection-end-line="787" selection-end-column="45" />
+            <state relative-caret-position="18">
+              <caret line="168" column="75" selection-start-line="168" selection-start-column="4" selection-end-line="168" selection-end-column="75" />
               <folding>
                 <element signature="e#1518#1556#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1656">
+              <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
+              <folding>
+                <element signature="e#988#1026#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/Charades/annotation/Charades_v1_train.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="183" selection-start-line="3" selection-start-column="183" selection-end-line="3" selection-end-column="183" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/const.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="756">
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
+              <folding>
+                <element signature="e#950#988#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -185,9 +218,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="954" />
-    <option name="width" value="952" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="435" />
+    <option name="y" value="30" />
+    <option name="width" value="1104" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -240,6 +274,13 @@
             <path>
               <item name="timeception-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="timeception-master" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="Charades" type="462c0819:PsiDirectoryNode" />
+              <item name="baseline_models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="timeception-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="timeception-master" type="462c0819:PsiDirectoryNode" />
               <item name="datasets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -276,7 +317,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/core" />
+    <property name="last_opened_file_path" value="F:/西北大学/2.论文阅读/13行为识别/NAS+AR" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="Errors" />
@@ -456,12 +497,17 @@
       <workItem from="1566981017389" duration="58182000" />
       <workItem from="1567169066441" duration="1926000" />
       <workItem from="1567235318397" duration="49234000" />
-      <workItem from="1567583312057" duration="271000" />
+      <workItem from="1567583312057" duration="635000" />
+      <workItem from="1567601597646" duration="3399000" />
+      <workItem from="1567683614278" duration="43000" />
+      <workItem from="1567734284691" duration="1845000" />
+      <workItem from="1567752988830" duration="514000" />
+      <workItem from="1567754018900" duration="59000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331756000" />
+    <option name="totallyTimeSpent" value="337980000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -473,14 +519,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="954" y="0" width="952" height="1047" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="File Transfer" order="0" sideWeight="0.25546604" side_tool="true" visible="true" weight="0.15405117" />
       <window_info id="Favorites" order="1" sideWeight="0.4638365" side_tool="true" weight="0.26705757" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.74453396" weight="0.3734104" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.74453396" visible="true" weight="0.29584223" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info id="Remote Host" order="4" sideWeight="0.6285266" weight="0.30989584" />
+      <window_info id="Remote Host" order="4" sideWeight="0.6285266" weight="0.16950959" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.49946696" weight="0.32925472" />
@@ -540,11 +586,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/LICENSE">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4446" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/1179558797/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -640,7 +681,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReadME/README.md">
+    <entry file="file://$PROJECT_DIR$/readme/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="335">
@@ -759,16 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/const.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="e#950#988#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/config_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
@@ -824,16 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5775">
-          <caret line="418" column="68" selection-start-line="418" selection-start-column="68" selection-end-line="418" selection-end-column="68" />
-          <folding>
-            <element signature="e#988#1026#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -853,8 +874,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/experiments/train_pytorch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="522">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="e#1502#1540#0" expanded="true" />
           </folding>
@@ -874,7 +895,7 @@
     <entry file="file://$PROJECT_DIR$/nets/timeception_pytorch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="e#970#1008#0" expanded="true" />
           </folding>
@@ -901,12 +922,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/charades.py">
+    <entry file="file://$PROJECT_DIR$/core/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13698">
-          <caret line="787" column="45" lean-forward="true" selection-start-line="787" selection-start-column="45" selection-end-line="787" selection-end-column="45" />
+        <state relative-caret-position="1656">
+          <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
           <folding>
-            <element signature="e#1518#1556#0" expanded="true" />
+            <element signature="e#988#1026#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/Charades/annotation/Charades_v1_train.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="183" selection-start-line="3" selection-start-column="183" selection-end-line="3" selection-end-column="183" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/const.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#950#988#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -917,6 +955,16 @@
           <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="8" />
           <folding>
             <element signature="e#264#276#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/charades.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="168" column="75" selection-start-line="168" selection-start-column="4" selection-end-line="168" selection-end-column="75" />
+          <folding>
+            <element signature="e#1518#1556#0" expanded="true" />
           </folding>
         </state>
       </provider>
