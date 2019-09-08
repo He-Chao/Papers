@@ -7,35 +7,67 @@ We provide the implementation for 3 different libraries: `keras`, `tensorflow` a
 
 ![timeception_layer](README.assets/timeception_layer.jpg)
 
-# 预处理
+# 预处理的具体操作：
 
-1. 采样：
+## 帧采样
 
-   对原始视频进行采样，采样的大小`T x Channels x H x W`：
+对拥有不同帧数的视频进行采样到拥有相同帧数的视频帧上。帧数分别为1024,512,256，每8帧为一个超级帧。
 
-   - $1024*3*224*224$
-   - $512*3*224*224$
-   - $256*3*224*224$
+- 路径：
 
-   ![1567320714612](README.assets/1567320714612.png)
+  `F:\LocalGitHub\Papers\1行为识别\2Timeception for Complex Action Recognition\timeception-master\datasets\charades.py`
 
-2. `I3D`进行特征提取：
+- 运行：
 
-   使用`I3D`对采样后的帧视频进行特征提取，特征提取后的大小为：`T x H x W x Channels`：
+  ```python
+  from datasets.charades import _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d 
+  _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d(n_frames_per_video=1024)
+  ```
 
-   - `128 x 7 x 7 x 1024​`
-   - `64 x 7 x 7 x 1024​`
-   - `32 x 7 x 7 x 1024​`
+  - `n_frames_per_video`为采样的帧数，`n_frames_per_video=256/512/1024`
 
-   ![1567321592609](README.assets/1567321592609.png)
+- 返回：
 
-3. Timeception：
+  ![1566970520262](README.assets/1566970520262.png)
 
-   以 `32 x 7 x 7 x 1024` 为例：
+  采样过后视频帧的名字。
 
-   -  `32 x 7 x 7 x 1024` + `8` `group` --> `32 x 7 x 7 x 128` ，将这个输入到每个`group` 中；
-   - 接着在每个`branch`中的输入的尺寸是 `32 x 7 x 7 x 128`，然后经过一个卷集核为 `1x1x1`，步长为`1`的单位`conv3d`卷积将`Channels`降到`32`即 `32 x 7 x 7 x 32`；
-   - 总共有`5`个分支，将5个 `branch` 得到的 `feature map` 进行组合的得到 `32 x 7 x 7 x 160`，再将 `8`个 `group` 组合得到 `32 x 7 x 7 x 1280`
+## 特征提取
+
+- 路径：
+
+  `F:\LocalGitHub\Papers\1行为识别\2Timeception for Complex Action Recognition\timeception-master\datasets\charades.py`
+
+- 运行：
+
+  ```python
+  from datasets import charades
+  charades.extract_features_i3d_charades(n_frames_in=1024,n_frames_out=128)
+  ```
+
+  - 需要满足的条件：`n_frames_in = 8 * n_frames_out`
+  - `for n_frames_in in（1024,512,256）`
+  - `for n_frames_out in（128,64,32）`
+  
+- `I3D`进行特征提取：
+
+  使用`I3D`对采样后的帧视频进行特征提取，特征提取后的大小为：`T x H x W x Channels`：
+
+  `128 x 7 x 7 x 1024​`
+
+  `64 x 7 x 7 x 1024​`
+
+  `32 x 7 x 7 x 1024​`
+
+![1567321592609](README.assets/1567321592609.png)
+
+## Timeception：
+
+以 `32 x 7 x 7 x 1024` 为例：
+
+-  `32 x 7 x 7 x 1024` + `8` `group` --> `32 x 7 x 7 x 128` ，将这个输入到每个`group` 中；
+- 接着在每个`branch`中的输入的尺寸是 `32 x 7 x 7 x 128`，然后经过一个卷集核为 `1x1x1`，步长为`1`的单位`conv3d`卷积将`Channels`降到`32`即 `32 x 7 x 7 x 32`；
+- 总共有`5`个分支，将5个 `branch` 得到的 `feature map` 进行组合的得到 `32 x 7 x 7 x 160`，再将 `8`个 `group` 组合得到 `32 x 7 x 7 x 1280`
 
 # 对长期时间依赖性上的解决方案：
 
@@ -265,46 +297,6 @@ print (tensor.size())
 ![1564803002894](README.assets/1564803002894.png)
 
 > 作者在实验过程中发现多核的不同的kernel_size与不同的dilation rates在实验性能上的相差无几甚至没有改变。说明二者的作用相似。但是相对来说不同的dilation rates更节省参数量，即空洞卷积效果更佳。
-
-# 预处理的具体操作：
-
-## 帧采样
-
-- 路径：
-
-  `F:\LocalGitHub\Papers\1行为识别\2Timeception for Complex Action Recognition\timeception-master\datasets\charades.py`
-
-- 运行：
-
-  ```python
-  from datasets.charades import _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d 
-  _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d(n_frames_per_video=1024)
-  ```
-
-  - `n_frames_per_video`为采样的帧数，`n_frames_per_video=256/512/1024`
-
-- 返回：
-
-  ![1566970520262](README.assets/1566970520262.png)
-
-  采样过后视频帧的名字。
-
-## 特征提取
-
-- 路径：
-
-  `F:\LocalGitHub\Papers\1行为识别\2Timeception for Complex Action Recognition\timeception-master\datasets\charades.py`
-
-- 运行：
-
-  ```python
-  from datasets import charades
-  charades.extract_features_i3d_charades(n_frames_in=1024,n_frames_out=128)
-  ```
-
-  - 需要满足的条件：`n_frames_in = 8 * n_frames_out`
-  - `for n_frames_in in（1024,512,256）`
-  - `for n_frames_out in（128,64,32）`
 
 # 训练，测试
 

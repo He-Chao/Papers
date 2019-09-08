@@ -19,7 +19,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extract_features.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
+            <state relative-caret-position="1350">
               <caret line="79" column="19" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -28,10 +28,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/charades/charades.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104310">
+            <state relative-caret-position="12186">
               <caret column="677690" selection-start-column="677685" selection-end-column="677690" />
             </state>
           </provider>
@@ -54,6 +54,18 @@
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor>
+                <caret selection-end-column="39" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -110,8 +122,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="786" />
-    <option name="y" value="165" />
+    <option name="x" value="139" />
+    <option name="y" value="64" />
     <option name="width" value="1377" />
     <option name="height" value="1047" />
   </component>
@@ -137,6 +149,11 @@
               <item name="pytorch-i3d" type="b2602c69:ProjectViewProjectNode" />
               <item name="pytorch-i3d" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pytorch-i3d" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pytorch-i3d" type="462c0819:PsiDirectoryNode" />
+              <item name="README.assets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -272,6 +289,8 @@
       <workItem from="1566971888440" duration="2334000" />
       <workItem from="1567077439640" duration="35000" />
       <workItem from="1567734479679" duration="97000" />
+      <workItem from="1567821821244" duration="3419000" />
+      <workItem from="1567853217226" duration="31000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1565099139339</created>
@@ -291,7 +310,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103929000" />
+    <option name="totallyTimeSpent" value="107379000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -304,11 +323,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="File Transfer" order="0" sideWeight="0.5183537" side_tool="true" visible="true" weight="0.18656716" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.48164627" visible="true" weight="0.18869936" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.48164627" visible="true" weight="0.19349681" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info id="Remote Host" order="4" sideWeight="0.48832035" weight="0.17750533" />
       <window_info anchor="bottom" id="调试" order="0" weight="0.44605118" />
@@ -330,7 +348,7 @@
       <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
       <window_info anchor="right" id="Terminal" order="6" sideWeight="0.4938821" side_tool="true" weight="0.41417912" />
-      <window_info anchor="right" id="Python Console" order="7" sideWeight="0.727475" visible="true" weight="0.25586355" />
+      <window_info anchor="right" id="Python Console" order="7" sideWeight="0.727475" weight="0.32889125" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,16 +393,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2142">
           <caret line="118" selection-start-line="118" selection-end-line="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="18">
-            <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -483,11 +491,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/extract_features.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
+        <state relative-caret-position="1350">
           <caret line="79" column="19" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/charades/charades.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12186">
+          <caret column="677690" selection-start-column="677685" selection-end-column="677690" />
         </state>
       </provider>
     </entry>
@@ -525,10 +540,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/charades/charades.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104310">
-          <caret column="677690" selection-start-column="677685" selection-end-column="677690" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret selection-end-column="39" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

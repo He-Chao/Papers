@@ -9,73 +9,53 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.59129214">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/multi_evaluate.sh">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="414">
-                  <caret line="23" selection-start-line="23" selection-end-line="23" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/evaluate_sample.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="468">
-                  <caret line="33" column="6" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="6" />
-                  <folding>
-                    <element signature="e#735#773#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/i3d.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2052">
-                  <caret line="114" column="6" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="6" />
-                  <folding>
-                    <element signature="e#902#940#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/i3d_test.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="594">
-                  <caret line="33" column="65" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="65" />
-                  <folding>
-                    <element signature="e#688#726#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/i3d.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="693">
-                  <caret line="154" column="28" selection-start-line="154" selection-start-column="28" selection-end-line="155" selection-end-column="40" />
-                  <folding>
-                    <element signature="e#902#940#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/multi_evaluate.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/evaluate_sample.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="33" column="6" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="6" />
+              <folding>
+                <element signature="e#735#773#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/i3d.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1962">
+              <caret line="114" column="6" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="6" />
+              <folding>
+                <element signature="e#902#940#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/i3d_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="33" column="65" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="65" />
+              <folding>
+                <element signature="e#688#726#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/i3d.py" root0="SKIP_HIGHLIGHTING" />
@@ -87,8 +67,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-4" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-281" />
+    <option name="y" value="270" />
     <option name="width" value="1929" />
     <option name="height" value="1047" />
   </component>
@@ -97,7 +78,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,10 +85,21 @@
               <item name="kinetics-i3d_tensorflow" type="b2602c69:ProjectViewProjectNode" />
               <item name="kinetics-i3d_tensorflow" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="kinetics-i3d_tensorflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kinetics-i3d_tensorflow" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kinetics-i3d_tensorflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kinetics-i3d_tensorflow" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -179,17 +170,19 @@
       <workItem from="1565226916923" duration="2558000" />
       <workItem from="1565240291875" duration="34000" />
       <workItem from="1565320913962" duration="41000" />
+      <workItem from="1567829415438" duration="64000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8607000" />
+    <option name="totallyTimeSpent" value="8671000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-281" y="270" width="1929" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17430703" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.176565" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Remote Host" order="3" weight="0.32958803" />
       <window_info anchor="bottom" id="调试" order="0" />
@@ -276,10 +269,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/i3d_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
+        <state relative-caret-position="468">
           <caret line="33" column="65" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="65" />
           <folding>
             <element signature="e#688#726#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/imagenet_rgb.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1962">
+          <caret line="114" column="6" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="6" />
+          <folding>
+            <element signature="e#902#940#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -290,16 +296,6 @@
           <caret line="33" column="6" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="6" />
           <folding>
             <element signature="e#735#773#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/i3d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="154" column="28" selection-start-line="154" selection-start-column="28" selection-end-line="155" selection-end-column="40" />
-          <folding>
-            <element signature="e#902#940#0" expanded="true" />
           </folding>
         </state>
       </provider>

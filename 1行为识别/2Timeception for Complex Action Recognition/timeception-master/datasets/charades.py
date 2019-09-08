@@ -743,10 +743,11 @@ def extract_features_i3d_charades(n_frames_in,n_frames_out):
     # n_frames_out = 128
     n_splits_per_video = 2
 
-    root_path = './data'
+    root_path = '../data'
     root_Charades_path ='/home/r/renpengzhen/Datasets/Charades'
     frames_annot_path = '%s/Charades/annotation/frames_dict_untrimmed_multi_label_i3d_%d_frames.pkl' % (root_path, n_frames_in) #采样过之后的帧路径
-    model_path = '%s/Charades/baseline_models/i3d/rgb_charades.pt' % (root_path) #模型存放的位置
+    # model_path = '/home/r/renpengzhen/PyTorch/timeception-master/model/i3d_kinetics_model_rgb.pth' #模型存放的位置
+    model_path = '%s/Charades/baseline_models/i3d/rgb_charades.pt' % (root_path)  # 模型存放的位置
     frames_root_path = '%s/Charades_v1_rgb' % (root_Charades_path) #所有视频帧存放的位置
     # features_root_path = '%s/Charades/features_i3d_charades_rgb_mixed_5c_untrimmed_%d_frames' % (root_path,n_frames_out) #用来存放使用i3d进行特征提取的路径
     features_root_path = '%s/Charades/features_i3d_pytorch_charades_rgb_mixed_5c_%df' % (root_path,n_frames_out) #用来存放使用i3d进行特征提取的路径
@@ -782,9 +783,12 @@ def extract_features_i3d_charades(n_frames_in,n_frames_out):
     # load the model
     model = i3d_torch_charades_utils.load_model_i3d_charades_rgb_for_testing(model_path)
 
+
+
     #进行一次forward，打印模型的具体输入输出细节
     print('input_size=(3, 8, 224, 224)')
     print(torchsummary.summary(model, input_size=(3, 8, 224, 224)))
+
 
     # loop on list of videos，对整个视频数据集进行操作
     for idx_video in range(n_videos):
@@ -827,7 +831,8 @@ def extract_features_i3d_charades(n_frames_in,n_frames_out):
         with torch.no_grad():
             # extract features
             input_var = torch.from_numpy(frames).cuda() #(T, 3, 8, 224, 224)，T=128,64,32
-            output_var = model(input_var) #提取特征
+            output_var = model(input_var) #提取特征 torch.Size([128, 1024, 1, 7, 7])
+            exit()
             output_var = output_var.cpu()
             features = output_var.data.numpy()  # (T, 1024, 1, 7, 7)
             # don't forget to clean up variables
@@ -895,3 +900,5 @@ def __pre_process_for_charades(img):
     return img
 
 # endregion
+if __name__ == '__main__':
+    extract_features_i3d_charades(n_frames_in=1024,n_frames_out=128)

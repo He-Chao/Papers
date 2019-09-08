@@ -65,8 +65,7 @@ if __name__ == "__main__":
 
     # RGB arguments
     parser.add_argument('--rgb', action='store_true', help='Evaluate RGB pretrained network')
-    parser.add_argument('--rgb_weights_path',type=str,
-                        default='model/model_rgb.pth',
+    parser.add_argument('--rgb_weights_path',type=str, default='model/model_rgb.pth',
                         help='Path to rgb model state_dict')
     parser.add_argument('--rgb_sample_path',type=str,
                         default='data/kinetic-samples/v_CricketShot_g04_c01_rgb.npy',
