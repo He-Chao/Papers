@@ -228,6 +228,7 @@ def __define_timeception_model(device):
     model = Model().to(device)
     model_param = model.parameters()
 
+
     # define the optimizer
     optimizer = SGD(model_param, lr=0.01) if solver_name == 'sgd' else Adam(model_param, lr=solver_lr, eps=adam_epsilon)
 

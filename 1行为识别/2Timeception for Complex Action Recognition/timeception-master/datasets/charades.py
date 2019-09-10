@@ -313,7 +313,7 @@ def _12_prepare_annotation_frames_per_video_dict_multi_label_all_frames():
 
 def _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d(n_frames_per_video):
     """
-    从视频帧当中进行帧提取
+    从视频帧当中进行帧采样
     Uniformly sample sequences of frames form each video. Each sequences consists of 8 successive frames.
     n_frames_per_video = 1024 || 512 || 256
     """
@@ -832,7 +832,6 @@ def extract_features_i3d_charades(n_frames_in,n_frames_out):
             # extract features
             input_var = torch.from_numpy(frames).cuda() #(T, 3, 8, 224, 224)，T=128,64,32
             output_var = model(input_var) #提取特征 torch.Size([128, 1024, 1, 7, 7])
-            exit()
             output_var = output_var.cpu()
             features = output_var.data.numpy()  # (T, 1024, 1, 7, 7)
             # don't forget to clean up variables
