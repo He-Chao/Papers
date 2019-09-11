@@ -139,7 +139,7 @@ Visualization of the weights and matching activations for the first convolutions
 
 ### RGB
 
-![v_CricketShot_g04_c01_rgb.gif](https://github.com/hassony2/kinetics_i3d_pytorch/blob/master/data/kinetic-samples/v_CricketShot_g04_c01_rgb.gif?raw=true)
+![v_CricketShot_g04_c01_rgb](README.assets/v_CricketShot_g04_c01_rgb.gif)
 
 **Weights**
 
@@ -147,11 +147,11 @@ Visualization of the weights and matching activations for the first convolutions
 
 **Activations**
 
-![rgb_activations.gif](https://github.com/hassony2/kinetics_i3d_pytorch/blob/master/results/activations/activation-gifs/rgb_activations.gif?raw=true)
+![rgb_activations](README.assets/rgb_activations.gif)
 
 ## Flow
 
-![v_CricketShot_g04_c01_flow.gif](https://github.com/hassony2/kinetics_i3d_pytorch/blob/master/data/kinetic-samples/v_CricketShot_g04_c01_flow.gif?raw=true)
+![v_CricketShot_g04_c01_flow](README.assets/v_CricketShot_g04_c01_flow.gif)
 
 **Weights**
 
@@ -159,9 +159,7 @@ Visualization of the weights and matching activations for the first convolutions
 
 **Activations**
 
-![flow_activations.gif](https://github.com/hassony2/kinetics_i3d_pytorch/blob/master/results/activations/activation-gifs/flow_activations.gif?raw=true)
-
-
+![flow_activations](README.assets/flow_activations.gif)
 
 #   Problem
 

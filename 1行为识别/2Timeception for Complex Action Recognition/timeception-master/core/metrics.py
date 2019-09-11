@@ -32,20 +32,24 @@ from __future__ import unicode_literals
 import numpy as np
 from sklearn.metrics import average_precision_score
 
+
 def map_charades(y_true, y_pred):
-    """ Returns mAP """
+    """ Returns mAP 原代码"""
+    #y_pred:16*157
     m_aps = []
     n_classes = y_pred.shape[1]
     for oc_i in range(n_classes):
-        pred_row = y_pred[:, oc_i]
-        sorted_idxs = np.argsort(-pred_row)
-        true_row = y_true[:, oc_i]
+        pred_row = y_pred[:, oc_i] #按列取数据
+        sorted_idxs = np.argsort(-pred_row) #排序
+        true_row = y_true[:, oc_i] #按列取数据
         tp = true_row[sorted_idxs] == 1
         fp = np.invert(tp)
         n_pos = tp.sum()
         if n_pos < 0.1:
             m_aps.append(float('nan'))
+            # m_aps.append(0)
             continue
+        fp.sum()
         f_pcs = np.cumsum(fp)
         t_pcs = np.cumsum(tp)
         prec = t_pcs / (f_pcs + t_pcs).astype(float)
@@ -55,7 +59,8 @@ def map_charades(y_true, y_pred):
                 avg_prec += prec[i]
         m_aps.append(avg_prec / n_pos.astype(float))
     m_aps = np.array(m_aps)
-    m_ap = np.mean(m_aps)
+    m_ap = np.nanmean(m_aps)
+    w_ap = (m_aps * y_pred.sum(axis=0) / y_pred.sum().sum().astype(float))
     return m_ap
 
 def map_sklearn(y_true, y_pred):

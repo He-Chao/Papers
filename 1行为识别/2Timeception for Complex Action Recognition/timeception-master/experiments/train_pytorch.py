@@ -117,13 +117,14 @@ def train_tco():
             x, y_true = x.to(device), y_true.to(device) #x.shape=(32*1024*32*7*7),即（batch*channels*T*h*w）
             optimizer.zero_grad()
             y_pred = model(x)
+
             loss = loss_fn(y_pred, y_true)
             loss.backward()
             optimizer.step()
 
             # calculate accuracy
-            y_true = y_true.cpu().numpy().astype(np.int32)
-            y_pred = y_pred.cpu().detach().numpy()
+            y_true = y_true.cpu().numpy().astype(np.int32) #真实标签
+            y_pred = y_pred.cpu().detach().numpy() #预测标签
             loss_b_tr = loss.cpu().detach().numpy()
             acc_b_tr = metric_fn(y_true, y_pred)
 
@@ -312,7 +313,8 @@ def __main(default_config_file):
     parser = OptionParser() #创建OptionParser对象，用于设置参数配置文件
     #使用parser.add_option(...)待定义命令行参数，及其帮助文档
     parser.add_option('-c', '--config_file', dest='config_file', default=default_config_file, help='Yaml config file that contains all training details.')
-    (options, args) = parser.parse_args() #option: {'config_file': 'charades_i3d_tc2_f256.yaml'},args: []
+    (options, args) = parser.parse_args()
+    #option: {'config_file': 'charades_i3d_tc2_f256.yaml'},args: []
     #options 是一个字典，其key字典中的关键字可能会是我们所有的add_option()函数中的dest参数值，其对应的value值，是命令行输入的对应的add_option()函数的参数值。
     #args,它是一个由 positional arguments 组成的列表。
     config_file = options.config_file #'charades_i3d_tc2_f256.yaml'
