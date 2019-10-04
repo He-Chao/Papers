@@ -167,7 +167,7 @@ class DataGeneratorCharades(keras.utils.Sequence):
         self.dataset_name = 'charades'
 
         # load annotation
-        root_path = './data/charades'
+        root_path = '/home/r/renpengzhen/PyTorch/NAS_AR_CNN/data/Charades'
         annotation_path = '%s/annotation/video_annotation.pkl' % (root_path)
         if self.is_training:
             (video_names, y, _, _) = utils.pkl_load(annotation_path)
@@ -235,7 +235,7 @@ class DataGeneratorCharades(keras.utils.Sequence):
 
 # region Constants
 
-KERAS_DATA_GENERATORS_DICT = {'charades': DataGeneratorCharades}
+KERAS_DATA_GENERATORS_DICT = {'Charades': DataGeneratorCharades}
 
 
 # endregion

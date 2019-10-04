@@ -35,6 +35,7 @@ import h5py
 import yaml
 import numpy as np
 import pickle as pkl
+# import cPickle
 import pandas as pd
 from datetime import datetime
 import matplotlib.pyplot as plt
@@ -56,7 +57,7 @@ logger = logging.getLogger(__name__)
 # path:./data/charades/annotation/video_annotation.pkl
 def pkl_load(path):
     #读取.pkl文件
-    with open(path, 'rb') as f:
+    with open(path, 'r') as f:
         data = pkl.load(f)
     return data
 

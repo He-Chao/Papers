@@ -39,8 +39,7 @@ def map_charades(y_true, y_pred):
     m_aps = []
     n_classes = y_pred.shape[1]
     for oc_i in range(n_classes):
-        pred_row = y_pred[:, oc_i] #按列取数据
-        sorted_idxs = np.argsort(-pred_row) #排序
+        sorted_idxs = np.argsort(-y_pred[:, oc_i]) #排序
         true_row = y_true[:, oc_i] #按列取数据
         tp = true_row[sorted_idxs] == 1
         fp = np.invert(tp)
@@ -59,7 +58,7 @@ def map_charades(y_true, y_pred):
                 avg_prec += prec[i]
         m_aps.append(avg_prec / n_pos.astype(float))
     m_aps = np.array(m_aps)
-    m_ap = np.nanmean(m_aps)
+    m_ap = np.mean(m_aps)
     w_ap = (m_aps * y_pred.sum(axis=0) / y_pred.sum().sum().astype(float))
     return m_ap
 

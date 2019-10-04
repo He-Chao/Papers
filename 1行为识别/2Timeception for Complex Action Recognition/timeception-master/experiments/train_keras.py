@@ -81,6 +81,7 @@ def train_tco():
     # load model
     model = __define_timeception_model()
     logger.info(model.summary())
+    print()
 
     # train the model
     model.fit_generator(epochs=n_epochs, generator=data_generator_tr, validation_data=data_generator_te, use_multiprocessing=True, workers=n_workers, callbacks=[save_callback], verbose=2)

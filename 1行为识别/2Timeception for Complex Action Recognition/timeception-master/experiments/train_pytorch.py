@@ -165,7 +165,7 @@ def train_tco():
 
         tt2 = time.time()
         duration = tt2 - tt1
-        sys.stdout.write('\r%04ds - epoch: %02d/%02d, [tr]: %0.2f, %0.2f, [te]: %0.2f, %0.2f           \n' % (duration, epoch_num, n_epochs, loss_tr, acc_te, loss_te, acc_te))
+        sys.stdout.write('\r%04ds - epoch: %02d/%02d, [tr]: %0.2f, %0.2f, [te]: %0.2f, %0.2f \n' % (duration, epoch_num, n_epochs, loss_tr, acc_te, loss_te, acc_te))
 
         # after each epoch, save data
         model_saver.save(idx_epoch)
