@@ -72,6 +72,7 @@ def train_tco():
     dataset_name = config.cfg.DATASET_NAME #Charades
     model_name = '%s_%s' % (config.cfg.MODEL.NAME, utils.timestamp()) #'charades_timeception_19.08.05-10:59:25'
     device = 'cuda'
+    torch.cuda.set_device(1)  # 设置当前设备
 
 
     # data generators 生成数据集
@@ -111,62 +112,69 @@ def train_tco():
         model.train() #将模型设置为训练阶段
 
         # training
+        Y_true, Y_pred = np.empty([0, 157]), np.empty([0, 157])
+        duration = 0.0
+        loss_b_tr = 0.0
         for idx_batch, (x, y_true) in enumerate(loader_tr):
             batch_num = idx_batch + 1
-
-            x, y_true = x.to(device), y_true.to(device) #x.shape=(32*1024*32*7*7),即（batch*channels*T*h*w）
+    
+            x, y_true = x.to(device), y_true.to(device)
             optimizer.zero_grad()
             y_pred = model(x)
-
             loss = loss_fn(y_pred, y_true)
             loss.backward()
             optimizer.step()
-
+    
             # calculate accuracy
-            y_true = y_true.cpu().numpy().astype(np.int32) #真实标签
-            y_pred = y_pred.cpu().detach().numpy() #预测标签
+            y_true = y_true.cpu().numpy().astype(np.int32)
+            y_pred = y_pred.cpu().detach().numpy()
+            Y_pred = np.append(Y_pred, y_pred, axis=0)
+            Y_true = np.append(Y_true, y_true, axis=0)
             loss_b_tr = loss.cpu().detach().numpy()
-            acc_b_tr = metric_fn(y_true, y_pred)
-
+    
             loss_tr += loss_b_tr
-            acc_tr += acc_b_tr
-            loss_b_tr = loss_tr / float(batch_num) #平均损失
-            acc_b_tr = acc_tr / float(batch_num)
+            loss_b_tr = loss_tr / float(batch_num)
             tt2 = time.time()
             duration = tt2 - tt1
-            sys.stdout.write('\r%04ds - epoch: %02d/%02d, batch [tr]: %02d/%02d, loss, %s: %0.2f, %0.2f ' % (duration, epoch_num, n_epochs, batch_num, n_batches_tr, metric_fn_name, loss_b_tr, acc_b_tr))
+            sys.stdout.write('\r%04ds - epoch: %02d/%02d, batch [tr]: %02d/%02d, loss: %0.4f' % (duration, epoch_num, n_epochs, batch_num, n_batches_tr, loss_b_tr))
+        
+        Y_true = np.array(Y_true)
+        Y_pred = np.array(Y_pred)
+        acc_tr = metric_fn(Y_true, Y_pred)  # 训练完一个epoch上的准确率
+        # sys.stdout.write('\r%04ds - epoch: %02d/%02d, loss: %0.4f, map: %0.4f' % (duration, epoch_num, args.epochs, loss_b_tr, acc_tr))
 
         # flag model as testing
         model.eval()
 
         # testing
+        Y_true, Y_pred = np.empty([0, 157]), np.empty([0, 157])
         for idx_batch, (x, y_true) in enumerate(loader_te):
             batch_num = idx_batch + 1
-
+    
             x, y_true = x.to(device), y_true.to(device)
             y_pred = model(x)
             loss_b_te = loss_fn(y_pred, y_true).cpu().detach().numpy()
             y_true = y_true.cpu().numpy().astype(np.int32)
             y_pred = y_pred.cpu().detach().numpy()
-            acc_b_te = metric_fn(y_true, y_pred)
-
+    
             loss_te += loss_b_te
-            acc_te += acc_b_te
             loss_b_te = loss_te / float(batch_num)
-            acc_b_te = acc_te / float(batch_num)
             tt2 = time.time()
             duration = tt2 - tt1
-            sys.stdout.write('\r%04ds - epoch: %02d/%02d, batch [te]: %02d/%02d, loss, %s: %0.2f, %0.2f ' % (duration, epoch_num, n_epochs, batch_num, n_batches_te, metric_fn_name, loss_b_te, acc_b_te))
+            sys.stdout.write('\r%04ds - epoch: %02d/%02d, batch [te]: %02d/%02d, loss, %s: %0.2f' % (duration, epoch_num, n_epochs, batch_num, n_batches_te, metric_fn_name, loss_b_te))
+            Y_pred = np.append(Y_pred, y_pred, axis=0)
+            Y_true = np.append(Y_true, y_true, axis=0)
+        
+        acc_te = metric_fn(Y_true, Y_pred)
 
         loss_tr /= float(n_batches_tr)
         loss_te /= float(n_batches_te)
-        acc_tr /= float(n_batches_tr)
-        acc_te /= float(n_batches_te)
 
         tt2 = time.time()
         duration = tt2 - tt1
-        sys.stdout.write('\r%04ds - epoch: %02d/%02d, [tr]: %0.2f, %0.2f, [te]: %0.2f, %0.2f \n' % (duration, epoch_num, n_epochs, loss_tr, acc_te, loss_te, acc_te))
-
+        sys.stdout.write('\r%04ds - epoch: %02d/%02d, [tr]: %0.4f, %0.4f, [te]: %0.4f, %0.4f ' % (duration, epoch_num, n_epochs, loss_tr, acc_tr, loss_te, acc_te))
+        print('\n')
+        
         # after each epoch, save data
         model_saver.save(idx_epoch)
 
@@ -187,6 +195,7 @@ def __define_loader(is_training):
     """
 
     # get some configs for the training，配置数据加载的参数
+    #这里的参数以'/data/pengzhen/timeception-master/configs/charades_i3d_tc3_f256.yaml'这个配置文件中的信息为准
     n_classes = config.cfg.MODEL.N_CLASSES #157
     dataset_name = config.cfg.DATASET_NAME #charades
     backbone_model_name = config.cfg.MODEL.BACKBONE_CNN #i3d_pytorch_charades_rgb
@@ -318,6 +327,7 @@ def __main(default_config_file):
     #options 是一个字典，其key字典中的关键字可能会是我们所有的add_option()函数中的dest参数值，其对应的value值，是命令行输入的对应的add_option()函数的参数值。
     #args,它是一个由 positional arguments 组成的列表。
     config_file = options.config_file #'charades_i3d_tc2_f256.yaml'
+    
 
     # check if exist,不存在进行警告
     if config_file is None or config_file == '':

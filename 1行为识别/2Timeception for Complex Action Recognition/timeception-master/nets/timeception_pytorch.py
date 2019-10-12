@@ -315,7 +315,7 @@ class Timeception(Module):
         对某一层的timeception进行处理，在这里面是对group进行循环
         :param tensor_input: (32, 1024, 128, 7, 7)
         :param n_groups: 8
-        :param layer_num: 4
+        :param layer_num: 第几层
         :return: 返回该层timeception的输出
         '''
 

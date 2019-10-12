@@ -118,7 +118,7 @@ def map_charades(y_true, y_pred):
     n_classes = y_pred.shape[1]
     for oc_i in range(n_classes):
         pred_row = y_pred[:, oc_i]
-        sorted_idxs = tf_framework.argsort(-pred_row)
+        sorted_idxs = tf_framework.argsort(-pred_row) #排序获得下标
         true_row = y_true[:, oc_i]
         true_row = tf.map_fn(lambda i: true_row[i], sorted_idxs, dtype=np.float32)
         tp_poolean = tf.equal(true_row, tf_one)

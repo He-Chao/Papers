@@ -168,7 +168,7 @@ class DatasetCharades(torch.utils.data.Dataset):
         self.dataset_name = 'Charades'
 
         # load annotation
-        root_path = './data/Charades'
+        root_path = '/data/pengzhen/NAS_AR_CNN//data/Charades'
         annotation_path = '%s/annotation/video_annotation.pkl' % (root_path) #视频注释./data/Charades/annotation/video_annotation.pkl
 
         if self.is_training:

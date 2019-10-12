@@ -57,7 +57,7 @@ logger = logging.getLogger(__name__)
 # path:./data/charades/annotation/video_annotation.pkl
 def pkl_load(path):
     #读取.pkl文件
-    with open(path, 'r') as f:
+    with open(path, 'rb') as f:
         data = pkl.load(f)
     return data
 

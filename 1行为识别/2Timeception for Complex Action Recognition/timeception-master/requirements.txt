@@ -1,3 +1,25 @@
+pytorch环境：
+pip install torchviz
+pip install torchsummary
+pip install h5py
+pip install pyyaml
+
+#install sklearn
+pip install sklearn
+pip install natsort
+
+#install cv2
+pip install opencv-python
+
+
+
+
+
+
+
+
+
+
 numpy
 opencv
 scikit-learn
