@@ -27,9 +27,10 @@ Main file of the project.
 
 def __main():
     from experiments import train_pytorch, test_pytorch
-
-    # or using pytorch
-    train_pytorch.__main(default_config_file = 'charades_i3d_tc3_f256.yaml')
+    train_pytorch.__main(default_config_file='charades_i3d_tc3_f256.yaml')
+    # from experiments import train_pytorch_batchMap
+    # train_pytorch_batchMap.__main(default_config_file = 'charades_i3d_tc3_f256.yaml')
+    
 
 
     # or using pytorch

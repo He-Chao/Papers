@@ -72,7 +72,7 @@ def train_tco():
     dataset_name = config.cfg.DATASET_NAME #Charades
     model_name = '%s_%s' % (config.cfg.MODEL.NAME, utils.timestamp()) #'charades_timeception_19.08.05-10:59:25'
     device = 'cuda'
-    torch.cuda.set_device(1)  # 设置当前设备
+    torch.cuda.set_device(0)  # 设置当前设备
 
 
     # data generators 生成数据集

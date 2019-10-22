@@ -29,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_pytorch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+            <state relative-caret-position="402">
+              <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -38,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/experiments/train_pytorch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3214">
-              <caret line="279" column="54" selection-start-line="279" selection-start-column="54" selection-end-line="279" selection-end-column="54" />
+            <state relative-caret-position="789">
+              <caret line="242" column="96" selection-start-line="242" selection-start-column="96" selection-end-line="242" selection-end-column="96" />
               <folding>
                 <element signature="e#1502#1540#0" expanded="true" />
               </folding>
@@ -47,18 +47,34 @@
           </provider>
         </entry>
       </file>
-      <file pinned="true" current-in-tab="false">
-        <entry file="remoteDeploymentFS://&lt;ac08b998-3a07-4f94-ac79-b69ae30dcd29&gt;/timeception-master/configs/charades_i3d_tc3_f256.yaml">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configs/charades_i3d_tc3_f256.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nets/timeception_pytorch.py">
+        <entry file="file://$PROJECT_DIR$/datasets/charades.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="270">
+              <caret line="460" column="26" selection-start-line="460" selection-start-column="26" selection-end-line="460" selection-end-column="26" />
               <folding>
-                <element signature="e#970#1008#0" expanded="true" />
+                <element signature="e#1517#1555#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/metrics.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+              <folding>
+                <element signature="e#949#987#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,10 +117,12 @@
       <find>input_size</find>
       <find>logging.info('\n')</find>
       <find>logging.info</find>
+      <find>0.2f</find>
     </findStrings>
     <replaceStrings>
       <replace>logging.info</replace>
       <replace>sys.stdout.write</replace>
+      <replace>0.4f</replace>
     </replaceStrings>
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -125,11 +143,9 @@
         <option value="$PROJECT_DIR$/nets/i3d_torch_charades.py" />
         <option value="$PROJECT_DIR$/core/data_utils.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/main_keras.py" />
         <option value="$PROJECT_DIR$/scripts/test_charades_i3d_tc4_f1024.sh" />
         <option value="$PROJECT_DIR$/core/config_utils.py" />
         <option value="$PROJECT_DIR$/ReadME/README.md" />
-        <option value="$PROJECT_DIR$/core/pytorch_utils.py" />
         <option value="$USER_HOME$/.PyCharm2019.1/system/remote_sources/1754501098/1931661670/multiprocessing/pool.py" />
         <option value="$PROJECT_DIR$/core/charades_utils.py" />
         <option value="$PROJECT_DIR$/core/image_utils.py" />
@@ -137,29 +153,32 @@
         <option value="$PROJECT_DIR$/configs/charades_i3d_tc3_f512.yaml" />
         <option value="$PROJECT_DIR$/configs/charades_i3d_tc4_f1024.yaml" />
         <option value="$PROJECT_DIR$/nets/layers_pytorch.py" />
-        <option value="$PROJECT_DIR$/configs/charades_i3d_tc2_f256.yaml" />
         <option value="$PROJECT_DIR$/nets/i3d_torch_charades_utils.py" />
         <option value="$PROJECT_DIR$/nets/i3d_torch_charades_test.py" />
-        <option value="$PROJECT_DIR$/datasets/charades.py" />
-        <option value="$PROJECT_DIR$/core/metrics.py" />
-        <option value="$PROJECT_DIR$/core/data_utils_keras.py" />
-        <option value="$PROJECT_DIR$/experiments/train_keras.py" />
-        <option value="$PROJECT_DIR$/core/keras_utils.py" />
         <option value="$PROJECT_DIR$/core/utils.py" />
-        <option value="$PROJECT_DIR$/nets/timeception_pytorch.py" />
-        <option value="$PROJECT_DIR$/main_pytorch.py" />
-        <option value="$PROJECT_DIR$/core/data_utils_pytorch.py" />
         <option value="&lt;838babc1-d88f-4f88-9eb4-f5c431464fd8&gt;/timeception-master/configs/charades_i3d_tc3_f256.yaml" />
-        <option value="$PROJECT_DIR$/configs/charades_i3d_tc3_f256.yaml" />
         <option value="&lt;838babc1-d88f-4f88-9eb4-f5c431464fd8&gt;/timeception-master/data/Charades/models/charades_timeception_19.10.06-11:28:47/logging" />
+        <option value="$PROJECT_DIR$/nets/timeception_pytorch.py" />
+        <option value="$PROJECT_DIR$/core/pytorch_utils.py" />
+        <option value="$PROJECT_DIR$/core/metrics.py" />
         <option value="$PROJECT_DIR$/experiments/train_pytorch.py" />
+        <option value="$PROJECT_DIR$/experiments/train_pytorch_batchMap.py" />
+        <option value="$PROJECT_DIR$/core/data_utils_keras.py" />
+        <option value="$PROJECT_DIR$/main_keras.py" />
+        <option value="$PROJECT_DIR$/configs/charades_i3d_tc2_f256.yaml" />
+        <option value="$PROJECT_DIR$/core/data_utils_pytorch.py" />
+        <option value="$PROJECT_DIR$/configs/charades_i3d_tc3_f256.yaml" />
+        <option value="$PROJECT_DIR$/core/keras_utils.py" />
+        <option value="$PROJECT_DIR$/experiments/train_keras.py" />
+        <option value="$PROJECT_DIR$/datasets/charades.py" />
+        <option value="$PROJECT_DIR$/main_pytorch.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="12" />
-    <option name="y" value="10" />
-    <option name="width" value="1136" />
+    <option name="x" value="815" />
+    <option name="y" value="6" />
+    <option name="width" value="922" />
     <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -194,6 +213,35 @@
               <item name="timeception-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="timeception-master" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="Charades" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="timeception-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="timeception-master" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="Charades" type="462c0819:PsiDirectoryNode" />
+              <item name="annotation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="timeception-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="timeception-master" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="Charades" type="462c0819:PsiDirectoryNode" />
+              <item name="baseline_models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="timeception-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="timeception-master" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="Charades" type="462c0819:PsiDirectoryNode" />
+              <item name="baseline_models" type="462c0819:PsiDirectoryNode" />
+              <item name="i3d" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="timeception-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="timeception-master" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="Charades" type="462c0819:PsiDirectoryNode" />
               <item name="Charades" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -235,7 +283,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../6Non-Local-NN-Pytorch" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/experiments" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -251,6 +299,7 @@
       <recent name="F:\西北大学\2.论文阅读\13行为识别\Timeception for Complex Action Recognition\timeception-master" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\LocalGitHub\Papers\1行为识别\2Timeception for Complex Action Recognition\timeception-master\experiments" />
       <recent name="F:\LocalGitHub\Papers\1行为识别\2Timeception for Complex Action Recognition\timeception-master\core" />
       <recent name="F:\LocalGitHub\Papers\1行为识别\2Timeception for Complex Action Recognition\timeception-master\data\Charades\models" />
       <recent name="F:\西北大学\2.论文阅读\13行为识别\Timeception for Complex Action Recognition\timeception-master" />
@@ -269,29 +318,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main_pytorch">
-    <configuration name="charades" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="timeception-master" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/datasets" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datasets/charades.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.main_keras">
     <configuration name="main_keras" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="timeception-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -336,7 +363,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="metrics" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="train_keras" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="timeception-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -344,12 +371,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/experiments" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/metrics.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/experiments/train_keras.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -380,13 +407,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="train_pytorch_batchMap" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="timeception-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/experiments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/experiments/train_pytorch_batchMap.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main_pytorch" />
-        <item itemvalue="Python.train_pytorch" />
         <item itemvalue="Python.main_keras" />
-        <item itemvalue="Python.metrics" />
-        <item itemvalue="Python.charades" />
+        <item itemvalue="Python.main_pytorch" />
+        <item itemvalue="Python.train_pytorch_batchMap" />
+        <item itemvalue="Python.train_keras" />
+        <item itemvalue="Python.train_pytorch" />
       </list>
     </recent_temporary>
   </component>
@@ -443,12 +492,15 @@
       <workItem from="1569673571593" duration="340000" />
       <workItem from="1570008744715" duration="1241000" />
       <workItem from="1570189071903" duration="12280000" />
-      <workItem from="1570364141038" duration="32056000" />
+      <workItem from="1570364141038" duration="32713000" />
+      <workItem from="1571218430314" duration="5103000" />
+      <workItem from="1571301789828" duration="16089000" />
+      <workItem from="1571368376652" duration="56039000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="467230000" />
+    <option name="totallyTimeSpent" value="545118000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -463,15 +515,15 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="File Transfer" order="0" sideWeight="0.44696066" side_tool="true" visible="true" weight="0.15458423" />
+      <window_info id="File Transfer" order="0" sideWeight="0.09715243" side_tool="true" visible="true" weight="0.18017058" />
       <window_info id="Favorites" order="1" sideWeight="0.4638365" side_tool="true" weight="0.26705757" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.71036947" weight="0.16331096" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.9028476" visible="true" weight="0.18017058" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info active="true" id="Remote Host" order="4" sideWeight="0.5530393" visible="true" weight="0.15458423" />
+      <window_info id="Remote Host" order="4" sideWeight="0.9011725" weight="0.26066098" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.49946696" weight="0.32925472" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.8251599" side_tool="true" weight="0.36262515" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.1684435" side_tool="true" visible="true" weight="0.34323433" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49946696" weight="0.32925472" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
@@ -480,42 +532,33 @@
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.24840085" weight="0.07810781" />
       <window_info anchor="bottom" id="TODO" order="10" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Jupyter" order="11" sideWeight="0.49840087" weight="0.32932165" />
-      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.75159913" visible="true" weight="0.0770077" />
+      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.8315565" visible="true" weight="0.34323433" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="调试" order="4" sideWeight="0.48387095" weight="0.2489339" />
-      <window_info anchor="right" id="Run" order="5" sideWeight="0.50945497" visible="true" weight="0.42537314" />
+      <window_info anchor="right" id="Run" order="5" sideWeight="0.50945497" visible="true" weight="0.28198293" />
       <window_info anchor="right" id="SciView" order="6" sideWeight="0.4938821" side_tool="true" weight="0.13432837" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/experiments/test_keras.py</url>
-          <line>26</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/timeception_master$utils.coverage" NAME="utils Coverage Results" MODIFIED="1564913397964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core" />
-    <SUITE FILE_PATH="coverage/timeception_master$train_pytorch.coverage" NAME="train_pytorch Coverage Results" MODIFIED="1570368838182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
+    <SUITE FILE_PATH="coverage/timeception_master$train_pytorch.coverage" NAME="train_pytorch Coverage Results" MODIFIED="1571316731791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
     <SUITE FILE_PATH="coverage/timeception_master$Python_Console.coverage" NAME="Python Console Coverage Results" MODIFIED="1567076225081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/timeception_master$Python_Console__5_.coverage" NAME="Python Console (5) Coverage Results" MODIFIED="1567045244800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/timeception_master$Python_Console__2_.coverage" NAME="Python Console (2) Coverage Results" MODIFIED="1567001978203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/timeception_master$main_pytorch.coverage" NAME="main_pytorch Coverage Results" MODIFIED="1570585619733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/timeception_master$main_pytorch.coverage" NAME="main_pytorch Coverage Results" MODIFIED="1571644137792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/timeception_master$train_keras.coverage" NAME="train_keras Coverage Results" MODIFIED="1571490967348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
     <SUITE FILE_PATH="coverage/timeception_master$Python_Console__1_.coverage" NAME="Python Console (1) Coverage Results" MODIFIED="1566989774877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/timeception_master$charades.coverage" NAME="charades Coverage Results" MODIFIED="1568092630577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/datasets" />
     <SUITE FILE_PATH="coverage/timeception_master$main.coverage" NAME="main Coverage Results" MODIFIED="1565071598761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/timeception_master$metrics.coverage" NAME="metrics Coverage Results" MODIFIED="1568187283531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core" />
-    <SUITE FILE_PATH="coverage/timeception_master$main_keras.coverage" NAME="main_keras Coverage Results" MODIFIED="1569662189826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/timeception_master$main_keras.coverage" NAME="main_keras Coverage Results" MODIFIED="1571644260369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/timeception_master$train_pytorch_batchMap.coverage" NAME="train_pytorch_batchMap Coverage Results" MODIFIED="1571561495211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
     <SUITE FILE_PATH="coverage/timeception_master$Python_Console__3_.coverage" NAME="Python Console (3) Coverage Results" MODIFIED="1567001989842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/timeception_master$Python_Console__4_.coverage" NAME="Python Console (4) Coverage Results" MODIFIED="1567045131161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
@@ -529,45 +572,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/1754501098/413246410/yaml/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/1754501098/1931661670/ast.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="42" column="29" lean-forward="true" selection-start-line="39" selection-start-column="3" selection-end-line="42" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readme/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="335">
-            <caret line="200" column="89" selection-start-line="200" selection-start-column="89" selection-end-line="200" selection-end-column="89" />
-            <folding>
-              <element signature="e#0#23#0" expanded="true" />
-              <element signature="e#0#23#0" expanded="true" />
-              <element signature="e#0#18#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/test_charades_i3d_tc4_f1024.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/Charades/annotation/video_annotation.pkl">
       <provider selected="true" editor-type-id="LargeFileEditor">
         <state relative-caret-position="508">
@@ -668,16 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/experiments/test_keras.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#952#990#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/1754501098/413246410/torch/utils/data/dataloader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2089">
@@ -691,16 +685,6 @@
     <entry file="file://$PROJECT_DIR$/data/Charades/annotation/Charades_v1_test.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/charades.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14364">
-          <caret line="824" column="24" selection-start-line="824" selection-start-column="24" selection-end-line="824" selection-end-column="24" />
-          <folding>
-            <element signature="e#1518#1556#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nets/i3d_torch_charades_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1926">
@@ -708,23 +692,6 @@
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nets/i3d_torch_charades_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1794">
-          <caret line="57" column="18" lean-forward="true" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/charades_i3d_tc2_f256.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -738,26 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nets/layers_pytorch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1584">
-          <caret line="100" column="105" selection-start-line="100" selection-start-column="105" selection-end-line="100" selection-end-column="105" />
-          <folding>
-            <element signature="e#947#985#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nets/i3d_torch_charades.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nets/resnet_152_pytorch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -768,74 +715,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/data_utils_keras.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="172" column="49" selection-start-line="172" selection-start-column="49" selection-end-line="172" selection-end-column="49" />
-          <folding>
-            <element signature="e#976#1014#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_keras.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-386686299/-1522179536/keras/engine/training.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4986">
-          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experiments/train_keras.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="185" column="67" selection-start-line="185" selection-start-column="67" selection-end-line="185" selection-end-column="67" />
-          <folding>
-            <element signature="e#1502#1540#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/metrics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-          <folding>
-            <element signature="e#949#987#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/keras_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1244">
-          <caret line="140" column="50" selection-start-line="140" selection-start-column="50" selection-end-line="140" selection-end-column="50" />
-          <folding>
-            <element signature="e#955#993#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nets/timeception.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="160" column="8" selection-start-line="160" selection-start-column="8" selection-end-line="160" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/image_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3690">
-          <caret line="205" column="25" selection-start-line="205" selection-start-column="25" selection-end-line="205" selection-end-column="25" />
-          <folding>
-            <element signature="e#956#994#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -860,49 +743,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/data_utils_pytorch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-507">
-          <caret line="166" column="32" selection-start-line="166" selection-start-column="32" selection-end-line="166" selection-end-column="32" />
-          <folding>
-            <element signature="e#976#1014#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/pytorch_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="271" column="68" selection-start-line="271" selection-start-column="68" selection-end-line="271" selection-end-column="68" />
-          <folding>
-            <element signature="e#957#995#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
           <caret line="80" column="15" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
           <folding>
             <element signature="e#1028#1066#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/charades_i3d_tc3_f256.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="e#988#1026#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -914,27 +760,224 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-29809528/413246410/sklearn/metrics/ranking.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="527" selection-start-line="527" selection-end-line="527" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1205857801/2086751057/torch/cuda/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="264" selection-start-line="264" selection-end-line="264" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nets/i3d_torch_charades.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/test_keras.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#952#990#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nets/i3d_torch_charades_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-668">
+          <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nets/layers_pytorch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1863">
+          <caret line="117" column="31" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
+          <folding>
+            <element signature="e#947#985#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nets/timeception_pytorch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="-122">
+          <caret line="241" column="31" selection-start-line="241" selection-start-column="31" selection-end-line="241" selection-end-column="31" />
           <folding>
             <element signature="e#970#1008#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/train_pytorch_batchMap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="338" selection-start-line="338" selection-end-line="338" />
+          <folding>
+            <element signature="e#1502#1540#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/data_utils_keras.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="213" column="19" selection-start-line="213" selection-start-column="19" selection-end-line="213" selection-end-column="19" />
+          <folding>
+            <element signature="e#976#1014#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/image_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1853">
+          <caret line="268" column="28" selection-start-line="268" selection-start-column="28" selection-end-line="268" selection-end-column="28" />
+          <folding>
+            <element signature="e#956#994#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-29809528/413246410/torch/utils/data/_utils/worker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/charades_i3d_tc2_f256.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/pytorch_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="261" selection-start-line="261" selection-end-line="261" />
+          <folding>
+            <element signature="e#957#995#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/data_utils_pytorch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="170" column="84" selection-start-line="170" selection-start-column="84" selection-end-line="170" selection-end-column="84" />
+          <folding>
+            <element signature="e#976#1014#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="e#988#1026#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/train_pytorch_batchMap1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3646" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-386686299/-1522179536/keras/engine/training.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/keras_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="146" selection-start-line="146" selection-end-line="146" />
+          <folding>
+            <element signature="e#955#993#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/train_keras.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1832">
+          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="187" />
+          <folding>
+            <element signature="e#1502#1540#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/charades_i3d_tc3_f256.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_keras.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
+          <folding>
+            <element signature="e#952#961#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/metrics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+          <folding>
+            <element signature="e#949#987#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/charades.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="460" column="26" selection-start-line="460" selection-start-column="26" selection-end-line="460" selection-end-column="26" />
+          <folding>
+            <element signature="e#1517#1555#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main_pytorch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        <state relative-caret-position="402">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiments/train_pytorch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3214">
-          <caret line="279" column="54" selection-start-line="279" selection-start-column="54" selection-end-line="279" selection-end-column="54" />
+        <state relative-caret-position="789">
+          <caret line="242" column="96" selection-start-line="242" selection-start-column="96" selection-end-line="242" selection-end-column="96" />
           <folding>
             <element signature="e#1502#1540#0" expanded="true" />
           </folding>

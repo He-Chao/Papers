@@ -54,7 +54,6 @@ Frames per video
 # 729.507166483
 # 55
 # 7983
-
 """
 
 from __future__ import absolute_import
@@ -313,7 +312,7 @@ def _12_prepare_annotation_frames_per_video_dict_multi_label_all_frames():
 
 def _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d(n_frames_per_video):
     """
-    从视频帧当中进行帧采样
+    为I3D模型从视频帧当中进行帧采样
     Uniformly sample sequences of frames form each video. Each sequences consists of 8 successive frames.
     n_frames_per_video = 1024 || 512 || 256
     """
@@ -735,8 +734,8 @@ def extract_features_i3d_charades(n_frames_in,n_frames_out):
     """
     Extract features from i3d-model
     n_frames_in = 8 * n_frames_out
-    n_frames_in = 1024,512,256
-    n_frames_out = 128,64,32
+    n_frames_in =  1024,512,256
+    n_frames_out = 128 , 64, 32
     """
 
     # n_frames_in = 1024
@@ -749,10 +748,7 @@ def extract_features_i3d_charades(n_frames_in,n_frames_out):
     # model_path = '/home/r/renpengzhen/PyTorch/timeception-master/model/i3d_kinetics_model_rgb.pth' #模型存放的位置
     model_path = '%s/Charades/baseline_models/i3d/rgb_charades.pt' % (root_path)  # 模型存放的位置
     frames_root_path = '%s/Charades_v1_rgb' % (root_Charades_path) #所有视频帧存放的位置
-    # features_root_path = '%s/Charades/features_i3d_charades_rgb_mixed_5c_untrimmed_%d_frames' % (root_path,n_frames_out) #用来存放使用i3d进行特征提取的路径
     features_root_path = '%s/Charades/features_i3d_pytorch_charades_rgb_mixed_5c_%df' % (root_path,n_frames_out) #用来存放使用i3d进行特征提取的路径
-
-
     (video_frames_dict_tr, video_frames_dict_te) = utils.pkl_load(frames_annot_path) #导入采样帧词典：包含了训练集和测试集的视频名：帧名列表，('AXIW1', array(['AXIW1-000001.jpg', 'AXIW1-000002.jpg', 'AXIW1-000003.jpg', ..., 'AXIW1-000768.jpg', 'AXIW1-000769.jpg', 'AXIW1-000770.jpg'], dtype='<U16'))
     video_frames_dict = dict() #构建视频帧空词典
     video_frames_dict.update(video_frames_dict_tr)
@@ -824,7 +820,7 @@ def extract_features_i3d_charades(n_frames_in,n_frames_out):
         # reshape to make one dimension carries the frames / segment, while the other dimesion represents the batch size
         frames = np.reshape(frames, (n_frames_out, n_frames_per_segment, 224, 224, 3))  # (T, 8, 224, 224, 3)，T实际上就是视频段，即超级帧的个数
 
-        # transpose to have the channel_first (G*T, 8, 224, 224, 3) => (T, 3, 8, 224, 224)
+        # transpose to have the channel_first (T, 8, 224, 224, 3) => (T, 3, 8, 224, 224)
         frames = np.transpose(frames, (0, 4, 1, 2, 3))
 
         # prepare input variable
@@ -899,5 +895,10 @@ def __pre_process_for_charades(img):
     return img
 
 # endregion
+'''
+_13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d: 从视频中进行帧采样
+extract_features_i3d_charades: 通过I3D进行特征提取
+'''
 if __name__ == '__main__':
     extract_features_i3d_charades(n_frames_in=1024,n_frames_out=128)
+    

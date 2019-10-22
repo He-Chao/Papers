@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="chang_Server_Ubuntu" showDialogOnRemoteDnD="false" autoUploadExternalChanges="true" showAutoUploadSettingsWarning="false">
+  <component name="PublishConfigData" autoUpload="Always" showDialogOnRemoteDnD="false" autoUploadExternalChanges="true" showAutoUploadSettingsWarning="false">
     <serverData>
       <paths name="chang_Server_Ubuntu">
         <serverdata>
@@ -12,7 +12,14 @@
       <paths name="r_Server_Ubuntu">
         <serverdata>
           <mappings>
-            <mapping deploy="/timeception-master" local="$PROJECT_DIR$" />
+            <mapping deploy="timeception-master" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="外购">
+        <serverdata>
+          <mappings>
+            <mapping deploy="timeception-master" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

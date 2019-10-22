@@ -175,7 +175,7 @@ class DataGeneratorCharades(keras.utils.Sequence):
             (_, _, video_names, y) = utils.pkl_load(annotation_path)
 
         # convert relative to root pathes
-        feats_path = np.array(['%s/%s/%s.pkl' % (root_path, feature_name, p) for p in video_names])
+        feats_path = np.array(['%s/%s/%s.pkl' % (root_path, feature_name, p) for p in video_names]) #features_i3d_pytorch_charades_rgb_mixed_5c_32f
 
         n_samples = len(y)
         self.n_samples = n_samples

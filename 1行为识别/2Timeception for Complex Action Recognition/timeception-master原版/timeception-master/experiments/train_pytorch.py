@@ -228,7 +228,7 @@ def __define_timeception_model(device):
     # loss and evaluation function for either multi-label "ml" or single-label "sl" classification
     if classification_type == 'ml':
         loss_fn = torch.nn.BCELoss()
-        metric_fn = metrics.map_charades
+        metric_fn = metrics.map_sklearn
         metric_fn_name = 'map'
     else:
         loss_fn = torch.nn.NLLLoss()

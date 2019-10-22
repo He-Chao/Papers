@@ -23,6 +23,28 @@
 """
 Main file of the project.
 """
+import os
+import pickle
+def py3_pkl_py2():
+    # python3生成的pkl文件向python2进行转换
+    root_path = '/home/r/renpengzhen/PyTorch/NAS_AR_CNN/data/Charades'
+    feature_name = 'features_i3d_pytorch_charades_rgb_mixed_5c_32f'
+    feats_path = os.path.join(root_path,feature_name)
+    transform_path = '%s/%s_python2'%(root_path,feature_name)
+    if not os.path.exists(transform_path):
+        os.makedirs(transform_path)
+    count = 0
+    for root,dirs,files in os.walk(feats_path):
+        print(len(files))
+        for file in files:
+            count += 1
+            if count%100==0:
+                print(count)
+            file_path = os.path.join(root,file)
+            save_path = os.path.join(transform_path,file)
+            with open(file_path, 'rb') as f:
+                w = pickle.load(f)
+                pickle.dump(w, open(save_path, "wb"), protocol=2)
 
 def __main():
     from experiments import train_keras, test_keras
@@ -35,5 +57,8 @@ def __main():
     # test_keras.__main()
 
 if __name__ == '__main__':
+    # py3_pkl_py2()
+    # exit()
     __main()
+    
     pass
