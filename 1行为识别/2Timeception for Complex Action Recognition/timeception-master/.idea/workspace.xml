@@ -27,27 +27,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main_pytorch.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiments/train_pytorch.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="330" selection-start-line="330" selection-end-line="330" />
-              <folding>
-                <element signature="e#1502#1540#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configs/charades_i3d_tc3_f256.yaml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="504">
@@ -56,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/metrics.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="202">
@@ -68,13 +47,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nets/timeception_pytorch.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/experiments/train_keras.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="683">
-              <caret line="251" column="18" selection-start-line="251" selection-start-column="18" selection-end-line="251" selection-end-column="18" />
+            <state relative-caret-position="-252">
+              <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="187" />
               <folding>
-                <element signature="e#970#1008#0" expanded="true" />
+                <element signature="e#1502#1540#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -495,12 +474,12 @@
       <workItem from="1570364141038" duration="32713000" />
       <workItem from="1571218430314" duration="5103000" />
       <workItem from="1571301789828" duration="16089000" />
-      <workItem from="1571368376652" duration="63090000" />
+      <workItem from="1571368376652" duration="64642000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="552169000" />
+    <option name="totallyTimeSpent" value="553721000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -515,11 +494,11 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="File Transfer" order="0" sideWeight="0.10074074" side_tool="true" visible="true" weight="0.13113007" />
+      <window_info id="File Transfer" order="0" sideWeight="0.10222222" side_tool="true" visible="true" weight="0.13113007" />
       <window_info id="Favorites" order="1" sideWeight="0.4638365" side_tool="true" weight="0.26705757" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.89925927" visible="true" weight="0.13113007" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.8977778" visible="true" weight="0.13113007" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info id="Remote Host" order="4" sideWeight="0.8962963" weight="0.13859275" />
+      <window_info id="Remote Host" order="4" sideWeight="0.8933333" weight="0.13859275" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.49946696" weight="0.32925472" />
@@ -910,16 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/experiments/train_keras.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1832">
-          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="187" />
-          <folding>
-            <element signature="e#1502#1540#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main_keras.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -950,27 +919,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_pytorch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/configs/charades_i3d_tc3_f256.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experiments/train_pytorch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="330" selection-start-line="330" selection-end-line="330" />
-          <folding>
-            <element signature="e#1502#1540#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -980,6 +932,33 @@
           <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
           <folding>
             <element signature="e#949#987#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_pytorch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="29" column="67" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/train_pytorch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-41">
+          <caret line="330" selection-start-line="330" selection-end-line="330" />
+          <folding>
+            <element signature="e#1502#1540#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/train_keras.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-252">
+          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="187" />
+          <folding>
+            <element signature="e#1502#1540#0" expanded="true" />
           </folding>
         </state>
       </provider>
