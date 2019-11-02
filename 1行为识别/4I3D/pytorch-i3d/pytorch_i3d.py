@@ -22,10 +22,11 @@ class MaxPool3dSamePadding(nn.MaxPool3d):
         # compute 'same' padding
         (batch, channel, t, h, w) = x.size()
         #print t,h,w
-        out_t = np.ceil(float(t) / float(self.stride[0]))
+        out_t = np.ceil(float(t) / float(self.stride[0])) #np.ceil向上取整
         out_h = np.ceil(float(h) / float(self.stride[1]))
         out_w = np.ceil(float(w) / float(self.stride[2]))
         #print out_t, out_h, out_w
+        #计算应当加入的padding
         pad_t = self.compute_pad(0, t)
         pad_h = self.compute_pad(1, h)
         pad_w = self.compute_pad(2, w)
@@ -219,18 +220,15 @@ class InceptionI3d(nn.Module):
 
         self.end_points = {}
         end_point = 'Conv3d_1a_7x7'
-        self.end_points[end_point] = Unit3D(in_channels=in_channels, output_channels=64, kernel_shape=[7, 7, 7],
-                                            stride=(2, 2, 2), padding=(3,3,3),  name=name+end_point)
+        self.end_points[end_point] = Unit3D(in_channels=in_channels, output_channels=64, kernel_shape=[7, 7, 7],stride=(2, 2, 2), padding=(3,3,3),  name=name+end_point)
         if self._final_endpoint == end_point: return
         
         end_point = 'MaxPool3d_2a_3x3'
-        self.end_points[end_point] = MaxPool3dSamePadding(kernel_size=[1, 3, 3], stride=(1, 2, 2),
-                                                             padding=0)
+        self.end_points[end_point] = MaxPool3dSamePadding(kernel_size=[1, 3, 3], stride=(1, 2, 2),padding=0)
         if self._final_endpoint == end_point: return
         
         end_point = 'Conv3d_2b_1x1'
-        self.end_points[end_point] = Unit3D(in_channels=64, output_channels=64, kernel_shape=[1, 1, 1], padding=0,
-                                       name=name+end_point)
+        self.end_points[end_point] = Unit3D(in_channels=64, output_channels=64, kernel_shape=[1, 1, 1], padding=0,name=name+end_point)
         if self._final_endpoint == end_point: return
         
         end_point = 'Conv3d_2c_3x3'
@@ -320,6 +318,7 @@ class InceptionI3d(nn.Module):
             self.add_module(k, self.end_points[k])
         
     def forward(self, x):
+        #(batch, channel, t, h, w)
         for end_point in self.VALID_ENDPOINTS:
             if end_point in self.end_points:
                 x = self._modules[end_point](x) # use _modules to work with dataparallel,这里执行到'Mixed-5c'

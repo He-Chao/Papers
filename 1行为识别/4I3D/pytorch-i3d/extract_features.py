@@ -9,7 +9,7 @@ parser.add_argument('-mode', default='rgb', type=str, help='rgb or flow')
 parser.add_argument('-load_model', default='./models/rgb_charades.pt',type=str)
 parser.add_argument('-root',default='/home/r/renpengzhen/Datasets/Charades_v1_rgb/Charades_v1_rgb', type=str)
 parser.add_argument('-gpu', default='0', type=str)
-parser.add_argument('-save_dir', default='./save_model',type=str)
+parser.add_argument('-save_dir', default='./extract_fearture',type=str)
 
 args = parser.parse_args()
 os.environ["CUDA_VISIBLE_DEVICES"]=args.gpu
@@ -21,6 +21,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.optim import lr_scheduler
 from torch.autograd import Variable
+import pickle as pkl
 
 import torchvision
 from torchvision import datasets, transforms
@@ -62,9 +63,9 @@ def run(max_steps=64e3, mode='', root='', split='charades/charades.json', batch_
     for phase in ['train', 'val']:
         i3d.train(False)  # Set model to evaluate mode,模型已经训练好了，直接调用其中的参数即可
                 
-        tot_loss = 0.0
-        tot_loc_loss = 0.0
-        tot_cls_loss = 0.0
+        # tot_loss = 0.0
+        # tot_loc_loss = 0.0
+        # tot_cls_loss = 0.0
                     
         # Iterate over data.
         i = 0
@@ -78,6 +79,7 @@ def run(max_steps=64e3, mode='', root='', split='charades/charades.json', batch_
 
 
             ts = 1600 #原版为1600
+            #如果帧的个数大于1600
             if t > ts:
                 features = []
                 for start in range(1, t-56, ts):
@@ -98,10 +100,43 @@ def run(max_steps=64e3, mode='', root='', split='charades/charades.json', batch_
                 print('finished: {}'.format(i))
             i += 1
 
-
+def count_number_of_pre_video_frames(path):
+    #统计经过i3D的提取每个视频特征的帧数T
+    '''
+    count_32 = (weight>32).sum()
+    count_32
+    Out[56]: 9766
+    count_64 = (weight>64).sum()
+    count_64
+    Out[58]: 9493
+    count_128 = (weight>128).sum()
+    count_128
+    Out[60]: 8217
+    '''
+    count = []
+    idx = 0
+    for root, dir, files in os.walk(path):
+        files.sort()
+        for file in files:
+            if idx % 100 == 0:
+                print(idx)
+            file_path = os.path.join(root,file)
+            feature = np.load(file_path,encoding="latin1")
+            T = feature.shape[0]
+            count += [T]
+            idx += 1
+    np.save('./extract_feature_count_T.npy',count)
+    
+    
+    
+    
+ 
 
 
 
 if __name__ == '__main__':
     # need to add argparse
+    path = '/home/r/renpengzhen/PyTorch/pytorch-i3d/extract_fearture'
+    count_number_of_pre_video_frames(path)
+    exit()
     run(mode=args.mode, root=args.root, save_dir=args.save_dir, load_model=args.load_model)

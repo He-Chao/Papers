@@ -50,11 +50,13 @@ def __main():
     from experiments import train_keras, test_keras
 
     # to train Timeception using keras
-    train_keras.__main()
+    # default_config_file = 'charades_i3d_tc4_f1024.yaml'
+    default_config_file = 'charades_i3d_tc3_f256.yaml'
+    # train_keras.__main(default_config_file)
 
 
     # to test Timeception using keras
-    # test_keras.__main()
+    test_keras.__main(default_config_file)
 
 if __name__ == '__main__':
     # py3_pkl_py2()

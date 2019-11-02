@@ -85,6 +85,22 @@ def train_tco():
     # train the model
     model.fit_generator(epochs=n_epochs, generator=data_generator_tr, validation_data=data_generator_te, use_multiprocessing=True, workers=n_workers, callbacks=[save_callback], verbose=2)
 
+    # for epoch in range(n_epochs):
+    #     for i, (x_train, y_train) in enumerate(data_generator_tr):
+    #         # i是batch的数目
+    #         logs = model.train_on_batch(x_train, y_train)
+    #         if i % 30 == 0:
+    #             logging.info(epoch, i, logs[0])
+    #
+    #     Y_true, Y_pred = np.empty([0, 157]), np.empty([0, 157])  # 构建一个空的np数组
+    #
+    #     for i, (x_test, y_test) in enumerate(data_generator_te):
+    #         y_pred = model.predict(x_test)
+    #         Y_true = np.append(Y_true, y_test, axis=0)
+    #         Y_pred = np.append(Y_pred, y_pred, axis=0)
+    #     acc = keras_utils.map_charades(Y_true, Y_pred)
+    #     logging.info(epoch, ' acc : ', acc)
+
     logger.info('--- finish time')
     logger.info(datetime.datetime.now())
 
@@ -187,13 +203,12 @@ def __define_timeception_model():
 
     return model
 
-def __main():
+def __main(default_config_file):
     """
     Run this script to train Timeception.
     """
 
-    default_config_file = 'charades_i3d_tc4_f1024.yaml'
-    default_config_file = 'charades_i3d_tc3_f256.yaml'
+    
 
     # Parse the arguments
     parser = OptionParser()

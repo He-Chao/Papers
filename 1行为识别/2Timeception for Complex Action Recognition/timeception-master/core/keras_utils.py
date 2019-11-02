@@ -178,7 +178,7 @@ class SaveCallback(Callback):
 
         # hfpy accept only strings as a path
         model_json_path = str('%s/%03d.json' % (model_root_path, epoch_num))
-        model_weight_path = str('%s/%03d.pkl' % (model_root_path, epoch_num))
+        model_weight_path = str('%s/%03d.json.h5' % (model_root_path, epoch_num))
 
         # save model definition as json, and save model weights
         model.save_weights(model_weight_path, overwrite=True)

@@ -335,6 +335,7 @@ def _14_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_resne
     """
 
     # if required frames per video are 128, there are 51/6 out of 7986/1864 videos in training/testing splits that don't satisfy this
+    # n_frames_per_video = 32 || 64 || 128
     n_frames_per_video = 32
     root_path = c.data_root_path
     annot_tr_text_path = '%s/Charades/annotation/Charades_v1_train.csv' % (root_path)
@@ -524,6 +525,7 @@ def __sample_frames_ordered(frames, n_required):
     return sampled_frames
 
 def __sample_frames_ordered_for_resnet(frames, n_required):
+    # 为resnet进行采帧
     # get n frames from all over the video
     n_frames = len(frames)
 
