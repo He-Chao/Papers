@@ -154,7 +154,7 @@ class AsyncLoaderVideoFeatures():
 # region Data Loaders (PyTorch)
 
 class DatasetCharades(torch.utils.data.Dataset):
-    def __init__(self, batch_size, n_classes, feature_dim, feature_name, is_training, is_shuffle=True):
+    def __init__(self, batch_size, n_classes, feature_dim, feature_name, is_training, data_path, is_shuffle=True):
         """
         Initialization
         """
@@ -168,8 +168,8 @@ class DatasetCharades(torch.utils.data.Dataset):
         self.dataset_name = 'Charades'
 
         # load annotation
-        # root_path = '/home/r/renpengzhen/PyTorch/NAS_AR_CNN/data/Charades' #实验室服务器
-        root_path = '/data/pengzhen/NAS_AR_CNN/data/Charades' #常老师服务器
+        root_path = './data/Charades' #实验室服务器
+        # root_path = '/data/pengzhen/NAS_AR_CNN/data/Charades' #常老师服务器
         annotation_path = '%s/annotation/video_annotation.pkl' % (root_path) #视频注释./data/Charades/annotation/video_annotation.pkl
 
         if self.is_training:
@@ -185,7 +185,7 @@ class DatasetCharades(torch.utils.data.Dataset):
         y = y.astype(np.float32)
 
         # convert relative to root pathes,通过I3D进行特征提取的特征存放的路径
-        feats_path = np.array(['%s/%s/%s.pkl' % (root_path, feature_name, p.astype(str)) for p in video_names]) #原版的。#'./data/Charades/features_i3d_pytorch_charades_rgb_mixed_5c_32f/'
+        feats_path = np.array(['%s/%s/%s.pkl' % (data_path, feature_name, p.astype(str)) for p in video_names]) #原版的。#'./data/Charades/features_i3d_pytorch_charades_rgb_mixed_5c_32f/'
 
         n_samples = len(y)
         self.n_samples = n_samples

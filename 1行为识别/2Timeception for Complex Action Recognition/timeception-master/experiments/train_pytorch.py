@@ -58,10 +58,11 @@ import torchsummary
 from nets import timeception_pytorch
 from core import utils, pytorch_utils, image_utils, config_utils, const, config, data_utils_pytorch, metrics
 from core.utils import Path as Pth
+from tensorboardX import SummaryWriter as writer
 
 logger = logging.getLogger(__name__)
 
-def train_tco():
+def train_tco(data_path):
     """
     Train Timeception layers based on the given configurations.
     This train scheme is Timeception-only (TCO).
@@ -76,9 +77,8 @@ def train_tco():
 
 
     # data generators 生成数据集
-    loader_tr, n_samples_tr, n_batches_tr = __define_loader(is_training=True) #<torch.utils.data.dataloader.DataLoader object at 0x7f70a6145f98>，n_samples_tr = 7811，n_batches_tr=245
-    loader_te, n_samples_te, n_batches_te = __define_loader(is_training=False)
-    #n_samples_te=1814,n_batches_te=37
+    loader_tr, n_samples_tr, n_batches_tr = __define_loader(data_path,is_training=True) #n_samples_tr = 7811，n_batches_tr=245
+    loader_te, n_samples_te, n_batches_te = __define_loader(data_path,is_training=False)#n_samples_te=1814,n_batches_te=37
 
     logger.info('--- start time')
     logger.info(datetime.datetime.now())
@@ -88,9 +88,12 @@ def train_tco():
 
     # load model，这里进行加载已经构建好的模型框架
     model, optimizer, loss_fn, metric_fn, metric_fn_name = __define_timeception_model(device)
+    
+    # 打印模型参数的大小，即所占空间
+    print('param size = %f MB'%utils.count_parameters_in_MB(model))
 
-    print('batch_size=2, input_shape[1:]=', model._input_shape[1:])
-    logger.info(pytorch_utils.summary(model, model._input_shape[1:], batch_size=2, device='cuda'))#打印模型摘要
+    # print('batch_size=2, input_shape[1:]=', model._input_shape[1:])
+    # logger.info(pytorch_utils.summary(model, model._input_shape[1:], batch_size=2, device='cuda'))#打印模型摘要
 
     # save the model，保存模型状态
     model_saver = pytorch_utils.ModelSaver(model, dataset_name, model_name)
@@ -110,6 +113,7 @@ def train_tco():
 
         # flag model as training
         model.train() #将模型设置为训练阶段
+        
 
         # training
         Y_true, Y_pred = np.empty([0, 157]), np.empty([0, 157])
@@ -121,6 +125,7 @@ def train_tco():
             x, y_true = x.to(device), y_true.to(device)
             optimizer.zero_grad()
             y_pred = model(x)
+            
             loss = loss_fn(y_pred, y_true)
             loss.backward()
             optimizer.step()
@@ -137,10 +142,11 @@ def train_tco():
             tt2 = time.time()
             duration = tt2 - tt1
             sys.stdout.write('\r%04ds - epoch: %02d/%02d, batch [tr]: %02d/%02d, loss: %0.4f' % (duration, epoch_num, n_epochs, batch_num, n_batches_tr, loss_b_tr))
-        
-        Y_true = np.array(Y_true)
-        Y_pred = np.array(Y_pred)
+        #转变
+        # Y_true = np.array(Y_true)
+        # Y_pred = np.array(Y_pred)
         acc_tr = metric_fn(Y_true, Y_pred)  # 训练完一个epoch上的准确率
+        loss_tr /= float(n_batches_tr)
         # sys.stdout.write('\r%04ds - epoch: %02d/%02d, loss: %0.4f, map: %0.4f' % (duration, epoch_num, args.epochs, loss_b_tr, acc_tr))
 
         # flag model as testing
@@ -166,17 +172,17 @@ def train_tco():
             Y_true = np.append(Y_true, y_true, axis=0)
         
         acc_te = metric_fn(Y_true, Y_pred)
-
-        loss_tr /= float(n_batches_tr)
         loss_te /= float(n_batches_te)
 
         tt2 = time.time()
         duration = tt2 - tt1
         sys.stdout.write('\r%04ds - epoch: %02d/%02d, [tr]: %0.4f, %0.4f, [te]: %0.4f, %0.4f ' % (duration, epoch_num, n_epochs, loss_tr, acc_tr, loss_te, acc_te))
         print('\n')
-        
+        writer().add_scalars('tr', {'loss_tr': loss_tr, 'acc_tr': acc_tr}, epoch_num)
+        writer().add_scalars('te', {'loss_te': loss_te, 'acc_te': acc_te}, epoch_num)
         # after each epoch, save data
         model_saver.save(idx_epoch)
+    writer().close()
 
     logger.info('--- finish time')
     logger.info(datetime.datetime.now())
@@ -189,7 +195,7 @@ def train_ete():
 
     raise Exception('Sorry, not implemented yet!')
 
-def __define_loader(is_training):
+def __define_loader(data_path,is_training):
     """
     Define data loader.
     """
@@ -214,7 +220,7 @@ def __define_loader(is_training):
     feature_dim = (c, n_timesteps, h, w) #特征的维度：1024, 32, 7, 7，其中的n_timesteps是自己设定的
 
     # data generators
-    params = {'batch_size': batch_size, 'n_classes': n_classes, 'feature_name': feature_name, 'feature_dim': feature_dim, 'is_training': is_training}
+    params = {'batch_size': batch_size, 'n_classes': n_classes, 'feature_name': feature_name, 'feature_dim': feature_dim, 'is_training': is_training,'data_path': data_path}
     dataset_class = data_utils_pytorch.PYTORCH_DATASETS_DICT[dataset_name] #core.data_utils_pytorch.DatasetCharades
     dataset = dataset_class(**params)
     n_samples = dataset.n_samples #7811 1814
@@ -294,8 +300,7 @@ class Model(Module):
     def forward(self, input):
         # feedforward the input to the timeception layers
         tensor = self.timeception(input)
-
-
+        
         # max-pool over space-time
         bn, c, t, h, w = tensor.size()
         tensor = tensor.view(bn, c, t * h * w)
@@ -313,7 +318,7 @@ class Model(Module):
 
         return tensor
 
-def __main(default_config_file):
+def __main(data_path, default_config_file):
     """
     Run this script to train Timeception.
     """
@@ -352,7 +357,7 @@ def __main(default_config_file):
 
         # start training
         if training_scheme == 'tco':
-            train_tco()
+            train_tco(data_path)
         else:
             train_ete()
 

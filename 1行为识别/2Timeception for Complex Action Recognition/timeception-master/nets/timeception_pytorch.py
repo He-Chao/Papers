@@ -320,7 +320,7 @@ class Timeception(Module):
         '''
 
         n_channels_in = tensor_input.size()[1]
-        n_channels_per_group_in = int(n_channels_in / n_groups) #每个group的通道：128个channels
+        n_channels_per_group_in = n_channels_in //n_groups #每个group的通道：128个channels
 
         # loop on groups
         t_outputs = []

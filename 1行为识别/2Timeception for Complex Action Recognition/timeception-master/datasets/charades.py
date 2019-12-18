@@ -68,18 +68,18 @@ import torch
 import csv
 import os
 import shutil
-import parse
+# import parse
 import time
 import threading
 import cv2
-import imageio
+# import imageio
 from natsort import natsort
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
 import torchsummary
 import logging
 
-from core import charades_utils
+# from core import charades_utils
 from nets import i3d_torch_charades_utils
 from core import const as c
 from core import utils, image_utils, config_utils
@@ -310,21 +310,21 @@ def _12_prepare_annotation_frames_per_video_dict_multi_label_all_frames():
 
     utils.pkl_dump((video_frames_dict_tr, video_frames_dict_te), annotation_path, is_highest=True)
 
-def _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d(n_frames_per_video):
+def _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d(n_frames_per_video,root_Charades_path):
     """
     为I3D模型从视频帧当中进行帧采样
     Uniformly sample sequences of frames form each video. Each sequences consists of 8 successive frames.
     n_frames_per_video = 1024 || 512 || 256
     """
     # root_path = c.DATA_ROOT_PATH
-    root_path = c.data_root_path
+    root_path = '../data'
     annot_tr_text_path = '%s/Charades/annotation/Charades_v1_train.csv' % (root_path) #'./data/Charades/annotation/Charades_v1_train.csv'
     annot_te_text_path = '%s/Charades/annotation/Charades_v1_test.csv' % (root_path)
     annotation_path = '%s/Charades/annotation/frames_dict_untrimmed_multi_label_i3d_%d_frames.pkl' % (root_path, n_frames_per_video)
 
     #进行采样：每8个连续帧作为一个视频段
-    video_frames_dict_tr = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_tr_text_path, n_frames_per_video)
-    video_frames_dict_te = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_te_text_path, n_frames_per_video)
+    video_frames_dict_tr = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_tr_text_path, n_frames_per_video,root_Charades_path)
+    video_frames_dict_te = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_te_text_path, n_frames_per_video,root_Charades_path)
 
     utils.pkl_dump((video_frames_dict_tr, video_frames_dict_te), annotation_path, is_highest=True)
 
@@ -370,7 +370,7 @@ def __get_frame_names_from_csv_file(annot_text_path, min_frames_per_video, max_f
             frames_relative_root_path = 'Charades/frames/Charades_v1_rgb/%s' % (video_id)
             frames_root_path = '%s/%s' % (root_path, frames_relative_root_path)
 
-            frame_names = utils.file_names(frames_root_path, nat_sorted=True)
+            frame_names = utils.file_names(frames_root_path, is_nat_sort=True)
             n_frames = len(frame_names)
             counts_before.append(n_frames)
 
@@ -446,7 +446,7 @@ def __get_frame_names_untrimmed_from_csv_file_for_ordered(annot_text_path, n_fra
 
     return video_frames_dict
 
-def __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_text_path, n_frames_per_video):
+def __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_text_path, n_frames_per_video,root_Charades_path):
     '''
     #video_frames_dict_tr = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_tr_text_path, n_frames_per_video)
     :param annot_text_path: './data/Charades/annotation/Charades_v1_train.csv'
@@ -455,7 +455,6 @@ def __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_text_path, n_frames_
     '''
     count = 0
     video_frames_dict = dict()
-    root_path = c.data_root_path
 
     n_lines = len(open(annot_text_path).readlines())
 
@@ -474,7 +473,7 @@ def __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_text_path, n_frames_
                 continue
 
             # get all frames of the video，得到该真video_id视频真实图片所存放的位置
-            frames_relative_root_path = '/home/r/renpengzhen/Datasets/Charades/Charades_v1_rgb/%s' % (video_id) #得到对应视频的所有帧图片
+            frames_relative_root_path = '%s/Charades_v1_rgb/%s' % (root_Charades_path,video_id) #得到对应视频的所有帧图片
             # frames_root_path = '%s/%s' % (root_path, frames_relative_root_path)
             #得到视频中所有图片的名字，即视频帧的名字
             video_frame_names = utils.file_names(frames_relative_root_path, is_nat_sort=True)
@@ -732,7 +731,7 @@ def __convert_seconds_to_frame_idx(time_in_sec):
 
 # region Extract Features
 
-def extract_features_i3d_charades(n_frames_in,n_frames_out):
+def extract_features_i3d_charades(root_Charades_path,n_frames_in):
     """
     Extract features from i3d-model
     n_frames_in = 8 * n_frames_out
@@ -741,16 +740,14 @@ def extract_features_i3d_charades(n_frames_in,n_frames_out):
     """
 
     # n_frames_in = 1024
-    # n_frames_out = 128
-    n_splits_per_video = 2
+    n_frames_out = n_frames_in//8
 
     root_path = '../data'
-    root_Charades_path ='/home/r/renpengzhen/Datasets/Charades'
     frames_annot_path = '%s/Charades/annotation/frames_dict_untrimmed_multi_label_i3d_%d_frames.pkl' % (root_path, n_frames_in) #采样过之后的帧路径
     # model_path = '/home/r/renpengzhen/PyTorch/timeception-master/model/i3d_kinetics_model_rgb.pth' #模型存放的位置
     model_path = '%s/Charades/baseline_models/i3d/rgb_charades.pt' % (root_path)  # 模型存放的位置
     frames_root_path = '%s/Charades_v1_rgb' % (root_Charades_path) #所有视频帧存放的位置
-    features_root_path = '%s/Charades/features_i3d_pytorch_charades_rgb_mixed_5c_%df' % (root_path,n_frames_out) #用来存放使用i3d进行特征提取的路径
+    features_root_path = '%s/Charades/features_i3d_pytorch_charades_rgb_mixed_5c_%df' % (root_Charades_path,n_frames_out) #用来存放使用i3d进行特征提取的路径
     (video_frames_dict_tr, video_frames_dict_te) = utils.pkl_load(frames_annot_path) #导入采样帧词典：包含了训练集和测试集的视频名：帧名列表，('AXIW1', array(['AXIW1-000001.jpg', 'AXIW1-000002.jpg', 'AXIW1-000003.jpg', ..., 'AXIW1-000768.jpg', 'AXIW1-000769.jpg', 'AXIW1-000770.jpg'], dtype='<U16'))
     video_frames_dict = dict() #构建视频帧空词典
     video_frames_dict.update(video_frames_dict_tr)
@@ -777,11 +774,10 @@ def extract_features_i3d_charades(n_frames_in,n_frames_out):
     # aync reader, and get load images for the first video, we will read the first group of videos
     video_group_frames = __get_video_frame_pathes(video_names[0], frames_root_path, video_frames_dict) #存储第一个视频帧的所有地址，是一个np数组类型
     video_reader_tr.load_video_frames_in_batch(video_group_frames)
+    
 
     # load the model
     model = i3d_torch_charades_utils.load_model_i3d_charades_rgb_for_testing(model_path)
-
-
 
     #进行一次forward，打印模型的具体输入输出细节
     print('input_size=(3, 8, 224, 224)')
@@ -900,7 +896,20 @@ def __pre_process_for_charades(img):
 '''
 _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d: 从视频中进行帧采样
 extract_features_i3d_charades: 通过I3D进行特征提取
+
+Charades_v1_test.csv文件内容出错，替换如下位置的名字即可：
+[x for x in data_test_csv if x not in data_test_json]
+Out[58]: ['1.50E+08', '5.00E+07', '607']
+[x for x in data_test_json if x not in data_test_csv]
+Out[59]: ['00607', '150E6', '50E06']
+
+
 '''
 if __name__ == '__main__':
-    extract_features_i3d_charades(n_frames_in=1024,n_frames_out=128)
+   
+    # root_Charades_path = '/home/r/renpengzhen/Datasets/Charades' #1070服务器
+    root_Charades_path = '/data/renpengzhen/data'  # 24G服务器
+    n_frames_in = 1024
+    _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d(n_frames_in,root_Charades_path)
+    extract_features_i3d_charades(root_Charades_path,n_frames_in)
     

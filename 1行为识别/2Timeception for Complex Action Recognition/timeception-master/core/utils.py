@@ -125,6 +125,8 @@ def pkl_dump(data, path, is_highest=True):
 def json_dump(data, path):
     with open(path, 'w') as f:
         json.dump(data, f)
+def count_parameters_in_MB(model):
+  return np.sum(np.prod(v.size()) for name, v in model.named_parameters() if "auxiliary" not in name)/1e6
 
 def h5_dump(data, path, dataset_name='data'):
     h5_file = h5py.File(path, 'w')

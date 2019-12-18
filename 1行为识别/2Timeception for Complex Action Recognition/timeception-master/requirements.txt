@@ -1,15 +1,27 @@
-pytorch环境：
+# pytorch环境：
+
+```shell
+pip install -U numpy  #升级numpy
 pip install torchviz
 pip install torchsummary
 pip install h5py
 pip install pyyaml
+```
 
-#install sklearn
+
+
+##install sklearn
+```
 pip install sklearn
 pip install natsort
+```
 
-#install cv2
+
+
+##install cv2
+```shell
 pip install opencv-python
+```
 
 
 

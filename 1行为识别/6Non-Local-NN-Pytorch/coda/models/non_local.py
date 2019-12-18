@@ -87,8 +87,8 @@ class NLBlockND(nn.Module):
         
         # (N, C, THW)
         # this reshaping and permutation is from the spacetime_nonlocal function in the original Caffe2 implementation
-        g_x = self.g(x).view(batch_size, self.inter_channels, -1)
-        g_x = g_x.permute(0, 2, 1)
+        g_x = self.g(x).view(batch_size, self.inter_channels, -1) #(N, C, THW)
+        g_x = g_x.permute(0, 2, 1) #(N, THW, C)
 
         if self.mode == "gaussian":
             theta_x = x.view(batch_size, self.in_channels, -1)
@@ -119,12 +119,12 @@ class NLBlockND(nn.Module):
             f_div_C = F.softmax(f, dim=-1)
         elif self.mode == "dot" or self.mode == "concatenate":
             N = f.size(-1) # number of position in x
-            f_div_C = f / N
+            f_div_C = f / N #(N,THW,THW)
         
-        y = torch.matmul(f_div_C, g_x)
+        y = torch.matmul(f_div_C, g_x) #(N,THW,C)
         
         # contiguous here just allocates contiguous chunk of memory
-        y = y.permute(0, 2, 1).contiguous()
+        y = y.permute(0, 2, 1).contiguous() #(N,C,THW)
         y = y.view(batch_size, self.inter_channels, *x.size()[2:])
         
         W_y = self.W_z(y)

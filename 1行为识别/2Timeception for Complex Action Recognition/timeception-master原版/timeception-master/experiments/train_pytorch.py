@@ -183,9 +183,9 @@ def __define_loader(is_training):
     # get some configs for the training
     n_classes = config.cfg.MODEL.N_CLASSES
     dataset_name = config.cfg.DATASET_NAME
-    backbone_model_name = config.cfg.MODEL.BACKBONE_CNN
-    backbone_feature_name = config.cfg.MODEL.BACKBONE_FEATURE
-    n_timesteps = config.cfg.MODEL.N_TC_TIMESTEPS
+    backbone_model_name = config.cfg.MODEL.BACKBONE_CNN #i3d_pytorch_charades_rgb
+    backbone_feature_name = config.cfg.MODEL.BACKBONE_FEATURE #mixed_5c
+    n_timesteps = config.cfg.MODEL.N_TC_TIMESTEPS #32
     n_workers = config.cfg.TRAIN.N_WORKERS
 
     batch_size_tr = config.cfg.TRAIN.BATCH_SIZE
@@ -193,7 +193,7 @@ def __define_loader(is_training):
     batch_size = batch_size_tr if is_training else batch_size_te
 
     # size and name of feature
-    feature_name = 'features_%s_%s_%sf' % (backbone_model_name, backbone_feature_name, n_timesteps)
+    feature_name = 'features_%s_%s_%sf' % (backbone_model_name, backbone_feature_name, n_timesteps) #features_i3d_pytorch_charades_rgb_mixed_5c_32f
     c, h, w = utils.get_model_feat_maps_info(backbone_model_name, backbone_feature_name)
     feature_dim = (c, n_timesteps, h, w)
 

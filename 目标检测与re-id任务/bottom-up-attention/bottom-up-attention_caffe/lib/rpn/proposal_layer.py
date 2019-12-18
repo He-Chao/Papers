@@ -1,3 +1,4 @@
+#coding=utf-8
 # --------------------------------------------------------
 # Faster R-CNN
 # Copyright (c) 2015 Microsoft
@@ -24,7 +25,8 @@ class ProposalLayer(caffe.Layer):
 
     def setup(self, bottom, top):
         # parse the layer parameter string, which must be valid YAML
-        layer_params = yaml.load(self.param_str)
+        layer_params = yaml.load(self.param_str,Loader=yaml.FullLoader)
+        #Loader=yaml.FullLoader,勿删
 
         self._feat_stride = layer_params['feat_stride']
         anchor_scales = layer_params.get('scales', (8, 16, 32))

@@ -7097,6 +7097,7 @@ layer {
     }
   }
 }
+#-----------------输出bbox_pred
 layer {
   name: "bbox_pred"
   type: "InnerProduct"

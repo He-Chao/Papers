@@ -25,17 +25,17 @@
 Main file of the project.
 """
 
-def __main():
+def __main(data_path):
     from experiments import train_pytorch, test_pytorch
-    train_pytorch.__main(default_config_file='charades_i3d_tc3_f256.yaml')
+    train_pytorch.__main(data_path,default_config_file='charades_i3d_tc4_f1024.yaml')
+    
     # from experiments import train_pytorch_batchMap
     # train_pytorch_batchMap.__main(default_config_file = 'charades_i3d_tc3_f256.yaml')
     
-
-
     # or using pytorch
     # test_pytorch.__main()
 
 if __name__ == '__main__':
-    __main()
-    pass
+    # data_path = '/home/r/renpengzhen/Datasets/Charades' #原始数据集及提取的特征存放的路径
+    data_path = '/data/renpengzhen/data/Charades' #原始数据集及提取的特征存放的路径
+    __main(data_path)

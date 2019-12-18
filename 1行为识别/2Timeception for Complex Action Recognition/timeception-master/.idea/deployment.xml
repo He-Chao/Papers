@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="r_Server_Ubuntu" showDialogOnRemoteDnD="false" autoUploadExternalChanges="true" showAutoUploadSettingsWarning="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="TiTan_GTX_24G" showDialogOnRemoteDnD="false" autoUploadExternalChanges="true" showAutoUploadSettingsWarning="false">
     <serverData>
-      <paths name="chang">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="r_Server_Ubuntu">
+      <paths name="GeForce_GTX_1070">
         <serverdata>
           <mappings>
             <mapping deploy="timeception-master" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="外购">
+      <paths name="TiTan_GTX_24G">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="timeception-master" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

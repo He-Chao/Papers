@@ -245,7 +245,7 @@ class DatasetCharades(torch.utils.data.Dataset):
         self.is_training = is_training
         self.n_classes = n_classes
         self.feature_dim = feature_dim
-        self.feature_name = feature_name
+        self.feature_name = feature_name #features_i3d_pytorch_charades_rgb_mixed_5c_32f
         self.is_shuffle = is_shuffle
         self.dataset_name = 'charades'
 

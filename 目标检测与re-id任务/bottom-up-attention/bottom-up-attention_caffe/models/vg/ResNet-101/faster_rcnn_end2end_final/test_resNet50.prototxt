@@ -2654,6 +2654,8 @@ layer {
 		pool: AVE
 	}
 }
+
+#================================
 layer {
 	bottom: "pool5"
 	top: "pool5_flat"

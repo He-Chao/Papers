@@ -7,9 +7,13 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-mode', default='rgb', type=str, help='rgb or flow')
 parser.add_argument('-load_model', default='./models/rgb_charades.pt',type=str)
-parser.add_argument('-root',default='/home/r/renpengzhen/Datasets/Charades_v1_rgb/Charades_v1_rgb', type=str)
+parser.add_argument('-root',default='/home/r/renpengzhen/Datasets/Charades/Charades_v1_rgb/Charades_v1_rgb', type=str) #实验室服务器
+parser.add_argument('-save_dir',default='/home/r/renpengzhen/Datasets/Charades/extract_fearture', type=str)
+
+# parser.add_argument('-root',default='/data/renpengzhen/data/Charades_v1_rgb', type=str)
+# parser.add_argument('-save_dir', default='/data/renpengzhen/data/Charades/extract_fearture',type=str)
 parser.add_argument('-gpu', default='0', type=str)
-parser.add_argument('-save_dir', default='./extract_fearture',type=str)
+
 
 args = parser.parse_args()
 os.environ["CUDA_VISIBLE_DEVICES"]=args.gpu
@@ -35,9 +39,12 @@ from pytorch_i3d import InceptionI3d
 from charades_dataset_full import Charades as Dataset
 
 
-def run(max_steps=64e3, mode='', root='', split='charades/charades.json', batch_size=1, load_model='', save_dir=''):
+def run(ts,max_steps=64e3, mode='', root='', split='charades/charades.json', batch_size=1, load_model='', save_dir=''):
     # setup dataset
     test_transforms = transforms.Compose([videotransforms.CenterCrop(224)]) #对视频数据进行中心裁剪，大小为224
+    save_dir = '%s_%s'%(save_dir,ts)
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
 
     #训练数据集的加载
     dataset = Dataset(split, 'training', root, mode, test_transforms, num=-1, save_dir=save_dir)
@@ -48,7 +55,7 @@ def run(max_steps=64e3, mode='', root='', split='charades/charades.json', batch_
     val_dataloader = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size, shuffle=True, num_workers=8, pin_memory=True) #测试集的视频个数1863
 
     dataloaders = {'train': dataloader, 'val': val_dataloader}
-    datasets = {'train': dataset, 'val': val_dataset}
+    # datasets = {'train': dataset, 'val': val_dataset}
 
     
     # setup the model
@@ -62,10 +69,6 @@ def run(max_steps=64e3, mode='', root='', split='charades/charades.json', batch_
 
     for phase in ['train', 'val']:
         i3d.train(False)  # Set model to evaluate mode,模型已经训练好了，直接调用其中的参数即可
-                
-        # tot_loss = 0.0
-        # tot_loc_loss = 0.0
-        # tot_cls_loss = 0.0
                     
         # Iterate over data.
         i = 0
@@ -76,15 +79,13 @@ def run(max_steps=64e3, mode='', root='', split='charades/charades.json', batch_
                 continue
 
             b,c,t,h,w = inputs.shape
-
-
-            ts = 1600 #原版为1600
+            #ts原版为1600
             #如果帧的个数大于1600
             if t > ts:
                 features = []
                 for start in range(1, t-56, ts):
+                    start = max(1, start - 48)
                     end = min(t-1, start+ts+56)
-                    start = max(1, start-48)
                     with torch.no_grad():
                         ip = Variable(torch.from_numpy(inputs.cpu().numpy()[:,:,start:end]).cuda())
                     #提取特征
@@ -96,7 +97,7 @@ def run(max_steps=64e3, mode='', root='', split='charades/charades.json', batch_
                     inputs = Variable(inputs.cuda())
                 features = i3d.extract_features(inputs) #使用i3d提取特征
                 np.save(os.path.join(save_dir, name[0]), features.squeeze(0).permute(1,2,3,0).data.cpu().numpy())
-            if i % 10 == 0:
+            if i % 1000 == 0:
                 print('finished: {}'.format(i))
             i += 1
 
@@ -136,7 +137,7 @@ def count_number_of_pre_video_frames(path):
 
 if __name__ == '__main__':
     # need to add argparse
-    path = '/home/r/renpengzhen/PyTorch/pytorch-i3d/extract_fearture'
+    path = '/home/r/renpengzhen/Datasets/Charades/extract_fearture_60'
     count_number_of_pre_video_frames(path)
     exit()
-    run(mode=args.mode, root=args.root, save_dir=args.save_dir, load_model=args.load_model)
+    run(mode=args.mode, root=args.root, save_dir=args.save_dir, load_model=args.load_model,ts=60 )

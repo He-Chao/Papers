@@ -57,7 +57,7 @@ def parse_args():
                         default='', type=str)
     parser.add_argument('--out', dest='outfile',
                         help='output filepath',
-                        default='vgg.tsv', type=str)
+                        default='test.tsv', type=str)
     parser.add_argument('--cfg', dest='cfg_file',
                         help='optional config file', default='../experiments/cfgs/faster_rcnn_end2end_resnet.yml', type=str)
     #dest用来指定参数的位置
@@ -208,12 +208,9 @@ if __name__ == '__main__':
 
     print('Called with args:')
     print(args)
-    if model == 'ResNet_50':
-        args.prototxt = '/home/lpx/renpengzhen/bottom-up-attention1/models/vg/ResNet-101/faster_rcnn_end2end_final/test_resNet50.prototxt'
-        args.caffemodel = '/home/lpx/renpengzhen/bottom-up-attention1/resnet50/ouput_model/test_resNet50.caffemodel'
-    elif model == 'ResNet_101':
-        args.prototxt = '../models/vg/ResNet-101/faster_rcnn_end2end_final/test.prototxt'
-        args.caffemodel = '../data/faster_rcnn_models/resnet101_faster_rcnn_final.caffemodel'
+
+    args.prototxt = '/home/lpx/renpengzhen/bottom-up-attention1/models/vg/ResNet-101/faster_rcnn_end2end_final/test_resNet50_RCNN.prototxt'
+    args.caffemodel = '/home/lpx/renpengzhen/bottom-up-attention1/resnet50/ouput_model/test_resNet50_CUHK03.caffemodel'
 
     if args.cfg_file is not None:
         #faster_rcnn_end2end_resnet.yml
