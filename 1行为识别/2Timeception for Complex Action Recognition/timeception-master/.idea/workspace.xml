@@ -51,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/core/pytorch_utils.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-5">
-              <caret line="250" column="13" lean-forward="true" selection-start-line="250" selection-start-column="13" selection-end-line="250" selection-end-column="13" />
+              <caret line="250" column="13" selection-start-line="250" selection-start-column="13" selection-end-line="250" selection-end-column="13" />
               <folding>
                 <element signature="e#957#995#0" expanded="true" />
               </folding>
@@ -63,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/nets/timeception_pytorch.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="322" column="34" lean-forward="true" selection-start-line="322" selection-start-column="34" selection-end-line="322" selection-end-column="34" />
+              <caret line="322" column="34" selection-start-line="322" selection-start-column="34" selection-end-line="322" selection-end-column="34" />
               <folding>
                 <element signature="e#970#1008#0" expanded="true" />
               </folding>
@@ -185,7 +185,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1912" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -238,7 +238,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/data/Charades/annotation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../timeception-for-pytorch" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -465,12 +465,12 @@
       <workItem from="1576201994068" duration="1424000" />
       <workItem from="1576388568744" duration="5346000" />
       <workItem from="1576486221136" duration="399000" />
-      <workItem from="1576486751968" duration="18917000" />
+      <workItem from="1576486751968" duration="19556000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="652055000" />
+    <option name="totallyTimeSpent" value="652694000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -912,7 +912,7 @@
     <entry file="file://$PROJECT_DIR$/nets/timeception_pytorch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="322" column="34" lean-forward="true" selection-start-line="322" selection-start-column="34" selection-end-line="322" selection-end-column="34" />
+          <caret line="322" column="34" selection-start-line="322" selection-start-column="34" selection-end-line="322" selection-end-column="34" />
           <folding>
             <element signature="e#970#1008#0" expanded="true" />
           </folding>
@@ -963,7 +963,7 @@
     <entry file="file://$PROJECT_DIR$/core/pytorch_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5">
-          <caret line="250" column="13" lean-forward="true" selection-start-line="250" selection-start-column="13" selection-end-line="250" selection-end-column="13" />
+          <caret line="250" column="13" selection-start-line="250" selection-start-column="13" selection-end-line="250" selection-end-column="13" />
           <folding>
             <element signature="e#957#995#0" expanded="true" />
           </folding>
