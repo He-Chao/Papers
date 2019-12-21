@@ -3,22 +3,6 @@ import os
 # os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
 import sys
 import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument('-mode', default='rgb', type=str, help='rgb or flow')
-parser.add_argument('-load_model', default='./models/rgb_charades.pt',type=str)
-parser.add_argument('-root',default='/home/r/renpengzhen/Datasets/Charades/Charades_v1_rgb/Charades_v1_rgb', type=str) #实验室服务器
-parser.add_argument('-save_dir',default='/home/r/renpengzhen/Datasets/Charades/extract_fearture', type=str)
-
-# parser.add_argument('-root',default='/data/renpengzhen/data/Charades_v1_rgb', type=str)
-# parser.add_argument('-save_dir', default='/data/renpengzhen/data/Charades/extract_fearture',type=str)
-parser.add_argument('-gpu', default='0', type=str)
-
-
-args = parser.parse_args()
-os.environ["CUDA_VISIBLE_DEVICES"]=args.gpu
-
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -26,28 +10,41 @@ import torch.optim as optim
 from torch.optim import lr_scheduler
 from torch.autograd import Variable
 import pickle as pkl
-
 import torchvision
 from torchvision import datasets, transforms
 import videotransforms
-
-
 import numpy as np
-
 from pytorch_i3d import InceptionI3d
-
 from charades_dataset_full import Charades as Dataset
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-mode', default='rgb', type=str, help='rgb or flow')
+parser.add_argument('-load_model', default='./models/rgb_charades.pt',type=str)
+parser.add_argument('-gpu', default='0', type=str)
+
+# parser.add_argument('-root',default='/home/r/renpengzhen/Datasets/Charades/Charades_v1_rgb/Charades_v1_rgb', type=str) #实验室服务器
+# parser.add_argument('-save_dir',default='/home/r/renpengzhen/Datasets/Charades/extract_fearture', type=str)
+
+parser.add_argument('-root',default='/data/renpengzhen/data/Charades_v1_rgb', type=str)
+parser.add_argument('-save_dir', default='/data/renpengzhen/data/Charades/extract_fearture',type=str)
+
+
+args = parser.parse_args()
+os.environ["CUDA_VISIBLE_DEVICES"]=args.gpu
 
 
 def run(ts,max_steps=64e3, mode='', root='', split='charades/charades.json', batch_size=1, load_model='', save_dir=''):
     # setup dataset
+    train_transforms = transforms.Compose([videotransforms.RandomCrop(224),
+                                           videotransforms.RandomHorizontalFlip(),
+                                           ])
     test_transforms = transforms.Compose([videotransforms.CenterCrop(224)]) #对视频数据进行中心裁剪，大小为224
-    save_dir = '%s_%s'%(save_dir,ts)
+    save_dir = '%s_%s' % (save_dir, ts)
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
 
     #训练数据集的加载
-    dataset = Dataset(split, 'training', root, mode, test_transforms, num=-1, save_dir=save_dir)
+    dataset = Dataset(split, 'training', root, mode, train_transforms, num=-1, save_dir=save_dir)
     dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=8, pin_memory=True)
 
     #测试集的加载
@@ -97,9 +94,10 @@ def run(ts,max_steps=64e3, mode='', root='', split='charades/charades.json', bat
                     inputs = Variable(inputs.cuda())
                 features = i3d.extract_features(inputs) #使用i3d提取特征
                 np.save(os.path.join(save_dir, name[0]), features.squeeze(0).permute(1,2,3,0).data.cpu().numpy())
-            if i % 1000 == 0:
+            if i % 10 == 0:
                 print('finished: {}'.format(i))
             i += 1
+    return save_dir
 
 def count_number_of_pre_video_frames(path):
     #统计经过i3D的提取每个视频特征的帧数T
@@ -128,16 +126,7 @@ def count_number_of_pre_video_frames(path):
             idx += 1
     np.save('./extract_feature_count_T.npy',count)
     
-    
-    
-    
- 
-
-
-
 if __name__ == '__main__':
     # need to add argparse
-    path = '/home/r/renpengzhen/Datasets/Charades/extract_fearture_60'
-    count_number_of_pre_video_frames(path)
-    exit()
-    run(mode=args.mode, root=args.root, save_dir=args.save_dir, load_model=args.load_model,ts=60 )
+    save_dir = run(mode=args.mode, root=args.root, save_dir=args.save_dir, load_model=args.load_model,ts=60 )
+    count_number_of_pre_video_frames(save_dir)

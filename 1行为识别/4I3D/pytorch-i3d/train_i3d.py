@@ -34,9 +34,7 @@ from charades_dataset import Charades as Dataset
 def run(init_lr=0.1, max_steps=64e3, mode='rgb', root='/ssd/Charades_v1_rgb', train_split='charades/charades.json', batch_size=8*5, save_model='save_model'):
     # run(mode=args.mode, root=args.root, save_model=args.save_model)
     # setup dataset
-    train_transforms = transforms.Compose([videotransforms.RandomCrop(224),
-                                           videotransforms.RandomHorizontalFlip(),
-    ])
+    train_transforms = transforms.Compose([videotransforms.RandomCrop(224),videotransforms.RandomHorizontalFlip(),])
     test_transforms = transforms.Compose([videotransforms.CenterCrop(224)])
 
     dataset = Dataset(train_split, 'training', root, mode, train_transforms)

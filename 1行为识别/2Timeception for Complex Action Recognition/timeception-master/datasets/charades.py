@@ -909,7 +909,7 @@ if __name__ == '__main__':
    
     # root_Charades_path = '/home/r/renpengzhen/Datasets/Charades' #1070服务器
     root_Charades_path = '/data/renpengzhen/data'  # 24G服务器
-    n_frames_in = 1024
+    n_frames_in = 512
     _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d(n_frames_in,root_Charades_path)
     extract_features_i3d_charades(root_Charades_path,n_frames_in)
     

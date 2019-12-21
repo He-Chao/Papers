@@ -125,7 +125,6 @@ def train_tco(data_path):
             x, y_true = x.to(device), y_true.to(device)
             optimizer.zero_grad()
             y_pred = model(x)
-            
             loss = loss_fn(y_pred, y_true)
             loss.backward()
             optimizer.step()
@@ -177,7 +176,6 @@ def train_tco(data_path):
         tt2 = time.time()
         duration = tt2 - tt1
         sys.stdout.write('\r%04ds - epoch: %02d/%02d, [tr]: %0.4f, %0.4f, [te]: %0.4f, %0.4f ' % (duration, epoch_num, n_epochs, loss_tr, acc_tr, loss_te, acc_te))
-        print('\n')
         writer().add_scalars('tr', {'loss_tr': loss_tr, 'acc_tr': acc_tr}, epoch_num)
         writer().add_scalars('te', {'loss_te': loss_te, 'acc_te': acc_te}, epoch_num)
         # after each epoch, save data
@@ -251,7 +249,7 @@ def __define_timeception_model(device):
     # loss and evaluation function for either multi-label "ml" or single-label "sl" classification
     if classification_type == 'ml':
         loss_fn = torch.nn.BCELoss()
-        metric_fn = metrics.map_sklearn
+        metric_fn = metrics.map_charades
         metric_fn_name = 'map'
     else:
         loss_fn = torch.nn.NLLLoss()

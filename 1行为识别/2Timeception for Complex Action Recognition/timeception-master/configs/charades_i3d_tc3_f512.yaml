@@ -17,7 +17,7 @@ MODEL:
   MULTISCALE_TYPE: 'dl' # use multi-scale by dilation rate "dl" or multi-scale by kernel-size "ks"
 
 TRAIN:
-  BATCH_SIZE: 20 # batch size for training
+  BATCH_SIZE: 12 # batch size for training
   N_EPOCHS: 500 # how many training epochs
   SCHEME: 'tco' # either 'ete' (end-to-end) or 'tco' ('timeception-only')
   N_WORKERS: 10 # how many parallel workers in the data generator

@@ -26,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/i3d_pt_demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="30" column="66" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="66" />
+            <state relative-caret-position="1368">
+              <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
               <folding>
                 <element signature="e#20#35#0" expanded="true" />
               </folding>
@@ -41,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/i3dpt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-88">
+            <state relative-caret-position="-4151">
               <caret line="161" column="68" selection-start-line="161" selection-start-column="68" selection-end-line="161" selection-end-column="68" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -55,18 +55,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
               <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/i3d_tf_to_pt.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3168">
-              <caret line="176" column="20" selection-start-line="176" selection-start-column="12" selection-end-line="176" selection-end-column="20" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -111,25 +99,7 @@
             <path>
               <item name="kinetics_i3d_pytorch" type="b2602c69:ProjectViewProjectNode" />
               <item name="kinetics_i3d_pytorch" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="dummy-dataset" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kinetics_i3d_pytorch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kinetics_i3d_pytorch" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="kinetic-samples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kinetics_i3d_pytorch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kinetics_i3d_pytorch" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kinetics_i3d_pytorch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kinetics_i3d_pytorch" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="tf_flow_imagenet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kinetics_i3d_pytorch" type="b2602c69:ProjectViewProjectNode" />
@@ -249,6 +219,7 @@
       <workItem from="1567853259157" duration="2251000" />
       <workItem from="1573651858443" duration="567000" />
       <workItem from="1576493795618" duration="109000" />
+      <workItem from="1576727700215" duration="1560000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1565271941747</created>
@@ -261,16 +232,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27996000" />
+    <option name="totallyTimeSpent" value="29556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="File Transfer" order="0" sideWeight="0.5037037" side_tool="true" weight="0.27922815" />
       <window_info id="Version Control" order="1" sideWeight="0.5011236" side_tool="true" weight="0.22076707" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.4966216" visible="true" weight="0.17430703" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.4966216" visible="true" weight="0.17590618" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Remote Host" order="5" sideWeight="0.4962963" weight="0.13113007" />
       <window_info anchor="bottom" id="调试" order="0" />
@@ -283,7 +253,7 @@
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="bottom" id="Python Console" order="10" visible="true" weight="0.38833883" />
+      <window_info anchor="bottom" id="Python Console" order="10" visible="true" weight="0.30363035" />
       <window_info anchor="right" id="SciView" order="0" weight="0.21588486" />
       <window_info anchor="right" id="Database" order="1" weight="0.32995737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
@@ -360,13 +330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_inflate_conv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/1227394127/torch/_C/IntTensorBase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="804">
@@ -374,22 +337,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/i3d_pt_demo.py">
+    <entry file="file://$PROJECT_DIR$/i3d_tf_to_pt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="66" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="66" />
+        <state relative-caret-position="3168">
+          <caret line="176" column="20" selection-start-line="176" selection-start-column="12" selection-end-line="176" selection-end-column="20" />
           <folding>
-            <element signature="e#20#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/i3dpt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
-          <caret line="161" column="68" selection-start-line="161" selection-start-column="68" selection-end-line="161" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -404,12 +357,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/i3d_tf_to_pt.py">
+    <entry file="file://$PROJECT_DIR$/src/i3dpt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3168">
-          <caret line="176" column="20" selection-start-line="176" selection-start-column="12" selection-end-line="176" selection-end-column="20" />
+        <state relative-caret-position="-4151">
+          <caret line="161" column="68" selection-start-line="161" selection-start-column="68" selection-end-line="161" selection-end-column="68" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_batch_norm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_first_block.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-299">
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_inflate_conv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-731">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i3d_pt_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1368">
+          <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
+          <folding>
+            <element signature="e#20#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
