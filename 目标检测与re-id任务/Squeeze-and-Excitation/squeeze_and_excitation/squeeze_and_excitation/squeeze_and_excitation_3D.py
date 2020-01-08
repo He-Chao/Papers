@@ -63,6 +63,7 @@ class SpatialSELayer3D(nn.Module):
     """
     3D extension of SE block -- squeezing spatially and exciting channel-wise described in:
         *Roy et al., Concurrent Spatial and Channel Squeeze & Excitation in Fully Convolutional Networks, MICCAI 2018*
+        这个是对D，H，W进行分配不同的权重
     """
 
     def __init__(self, num_channels):

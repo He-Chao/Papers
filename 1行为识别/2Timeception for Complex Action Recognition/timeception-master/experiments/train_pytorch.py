@@ -71,7 +71,9 @@ def train_tco(data_path):
     # get some configs for the training
     n_epochs = config.cfg.TRAIN.N_EPOCHS #500
     dataset_name = config.cfg.DATASET_NAME #Charades
-    model_name = '%s_%s' % (config.cfg.MODEL.NAME, utils.timestamp()) #'charades_timeception_19.08.05-10:59:25'
+    n_timestep_in = config.cfg.MODEL.N_TC_TIMESTEPS
+    model_name = '%s_%s_%s' % (config.cfg.MODEL.NAME, n_timestep_in, utils.timestamp())
+    #'charades_timeception_19.08.05-10:59:25'
     device = 'cuda'
     torch.cuda.set_device(0)  # 设置当前设备
 
@@ -80,10 +82,11 @@ def train_tco(data_path):
     loader_tr, n_samples_tr, n_batches_tr = __define_loader(data_path,is_training=True) #n_samples_tr = 7811，n_batches_tr=245
     loader_te, n_samples_te, n_batches_te = __define_loader(data_path,is_training=False)#n_samples_te=1814,n_batches_te=37
 
-    logger.info('--- start time')
-    logger.info(datetime.datetime.now())
-    logger.info('... [tr]: n_samples, n_batch, batch_size: %d, %d, %d' % (n_samples_tr, n_batches_tr, config.cfg.TRAIN.BATCH_SIZE))
-    logger.info('... [te]: n_samples, n_batch, batch_size: %d, %d, %d' % (n_samples_te, n_batches_te, config.cfg.TEST.BATCH_SIZE))
+    print('--- start time')
+    print(datetime.datetime.now())
+    print('model_name: %s' % model_name)
+    print('... [tr]: n_samples, n_batch, batch_size: %d, %d, %d' % (n_samples_tr, n_batches_tr, config.cfg.TRAIN.BATCH_SIZE))
+    print('... [te]: n_samples, n_batch, batch_size: %d, %d, %d' % (n_samples_te, n_batches_te, config.cfg.TEST.BATCH_SIZE))
 
 
     # load model，这里进行加载已经构建好的模型框架
@@ -93,16 +96,14 @@ def train_tco(data_path):
     print('param size = %f MB'%utils.count_parameters_in_MB(model))
 
     # print('batch_size=2, input_shape[1:]=', model._input_shape[1:])
-    # logger.info(pytorch_utils.summary(model, model._input_shape[1:], batch_size=2, device='cuda'))#打印模型摘要
+    # print(pytorch_utils.summary(model, model._input_shape[1:], batch_size=2, device='cuda'))#打印模型摘要
 
     # save the model，保存模型状态
     model_saver = pytorch_utils.ModelSaver(model, dataset_name, model_name)
 
 
     # loop on the epochs
-    sys.stdout.write('\n')
     for idx_epoch in range(n_epochs):
-
         epoch_num = idx_epoch + 1
         # print(epoch_num)
         loss_tr = 0.0
@@ -113,8 +114,6 @@ def train_tco(data_path):
 
         # flag model as training
         model.train() #将模型设置为训练阶段
-        
-
         # training
         Y_true, Y_pred = np.empty([0, 157]), np.empty([0, 157])
         duration = 0.0
@@ -147,6 +146,9 @@ def train_tco(data_path):
         acc_tr = metric_fn(Y_true, Y_pred)  # 训练完一个epoch上的准确率
         loss_tr /= float(n_batches_tr)
         # sys.stdout.write('\r%04ds - epoch: %02d/%02d, loss: %0.4f, map: %0.4f' % (duration, epoch_num, args.epochs, loss_b_tr, acc_tr))
+        
+        # after each epoch, save data
+        model_saver.save(idx_epoch)
 
         # flag model as testing
         model.eval()
@@ -175,15 +177,14 @@ def train_tco(data_path):
 
         tt2 = time.time()
         duration = tt2 - tt1
-        sys.stdout.write('\r%04ds - epoch: %02d/%02d, [tr]: %0.4f, %0.4f, [te]: %0.4f, %0.4f ' % (duration, epoch_num, n_epochs, loss_tr, acc_tr, loss_te, acc_te))
+        sys.stdout.write('\r%04ds - epoch: %02d/%02d, [tr]: %0.4f, %0.4f, [te]: %0.4f, %0.4f\n' % (duration, epoch_num, n_epochs, loss_tr, acc_tr, loss_te, acc_te))
         writer().add_scalars('tr', {'loss_tr': loss_tr, 'acc_tr': acc_tr}, epoch_num)
         writer().add_scalars('te', {'loss_te': loss_te, 'acc_te': acc_te}, epoch_num)
-        # after each epoch, save data
-        model_saver.save(idx_epoch)
+        
     writer().close()
 
-    logger.info('--- finish time')
-    logger.info(datetime.datetime.now())
+    print('--- finish time')
+    print(datetime.datetime.now())
 
 def train_ete():
     """

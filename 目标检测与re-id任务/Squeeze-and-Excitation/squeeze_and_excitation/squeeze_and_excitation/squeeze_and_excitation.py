@@ -21,6 +21,7 @@ class ChannelSELayer(nn.Module):
     """
     Re-implementation of Squeeze-and-Excitation (SE) block described in:
         *Hu et al., Squeeze-and-Excitation Networks, arXiv:1709.01507*
+    对通道进行加权
 
     """
 
@@ -139,6 +140,6 @@ class SELayer(Enum):
             self.SELayer = se.ChannelSpatialSELayer(params['num_filters'])
     """
     NONE = 'NONE'
-    CSE = 'CSE'
-    SSE = 'SSE'
-    CSSE = 'CSSE'
+    CSE = 'CSE' #对通道进行加权
+    SSE = 'SSE' #对DHW进行加权
+    CSSE = 'CSSE' #对前面两种情况进行求和处理

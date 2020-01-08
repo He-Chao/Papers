@@ -67,6 +67,7 @@ import numpy as np
 import torch
 import csv
 import os
+import sys
 import shutil
 # import parse
 import time
@@ -310,23 +311,39 @@ def _12_prepare_annotation_frames_per_video_dict_multi_label_all_frames():
 
     utils.pkl_dump((video_frames_dict_tr, video_frames_dict_te), annotation_path, is_highest=True)
 
-def _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d(n_frames_per_video,root_Charades_path):
+def _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d(n_frames_per_video,root_Charades_path,random_sample = False,is_training=True):
     """
     为I3D模型从视频帧当中进行帧采样
     Uniformly sample sequences of frames form each video. Each sequences consists of 8 successive frames.
     n_frames_per_video = 1024 || 512 || 256
     """
+ 
     # root_path = c.DATA_ROOT_PATH
-    root_path = '../data'
+    root_path = './data'
     annot_tr_text_path = '%s/Charades/annotation/Charades_v1_train.csv' % (root_path) #'./data/Charades/annotation/Charades_v1_train.csv'
     annot_te_text_path = '%s/Charades/annotation/Charades_v1_test.csv' % (root_path)
-    annotation_path = '%s/Charades/annotation/frames_dict_untrimmed_multi_label_i3d_%d_frames.pkl' % (root_path, n_frames_per_video)
+    annotation_path = '%s/Charades/annotation/frames_dict_untrimmed_multi_label_i3d_%d_frames' % (root_path, n_frames_per_video)
 
     #进行采样：每8个连续帧作为一个视频段
-    video_frames_dict_tr = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_tr_text_path, n_frames_per_video,root_Charades_path)
-    video_frames_dict_te = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_te_text_path, n_frames_per_video,root_Charades_path)
-
+    if is_training:
+        # 训练阶段
+        if random_sample:
+            #在训练阶段如果随机采样，只对训练集进行随机采样，保持测试集不变
+            annotation_path = '%s_train' % annotation_path
+            video_frames_dict_tr = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_tr_text_path,n_frames_per_video,root_Charades_path, random_sample,is_training)
+            video_frames_dict_te = dict()  # 只对训练集进行随机采样，保持测试集不变
+        else:
+            #在训练阶段如果不随机采样，将训练集和测试集都进行等距离采样
+            video_frames_dict_tr = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_tr_text_path,n_frames_per_video,root_Charades_path, random_sample,is_training)
+            video_frames_dict_te = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_te_text_path,n_frames_per_video,root_Charades_path, random_sample,is_training)
+    else:
+        # 测试阶段
+        annotation_path = '%s_test' % annotation_path
+        video_frames_dict_tr = dict()  # 训练集暂且不做随机采样
+        video_frames_dict_te = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_te_text_path, n_frames_per_video,root_Charades_path, random_sample,is_training)
+    annotation_path = '%s.pkl'%annotation_path
     utils.pkl_dump((video_frames_dict_tr, video_frames_dict_te), annotation_path, is_highest=True)
+    return annotation_path
 
 def _14_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_resnet_ordered():
     """
@@ -446,7 +463,7 @@ def __get_frame_names_untrimmed_from_csv_file_for_ordered(annot_text_path, n_fra
 
     return video_frames_dict
 
-def __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_text_path, n_frames_per_video,root_Charades_path):
+def __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_text_path, n_frames_per_video,root_Charades_path,random_sample=False, is_training=True):
     '''
     #video_frames_dict_tr = __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_tr_text_path, n_frames_per_video)
     :param annot_text_path: './data/Charades/annotation/Charades_v1_train.csv'
@@ -461,10 +478,8 @@ def __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_text_path, n_frames_
     with open(annot_text_path) as f:
         reader = csv.DictReader(f)
         for row in reader:
-            if count % 100 == 0:
-                print('... %d/%d' % (count, n_lines))
+            sys.stdout.write('\r... %d/%d' % (count, n_lines)) #打印处理的进度
             count += 1
-
             action_strings = row['actions'] #视频的动作时间标注
             video_id = row['id'] #视频的id名称
 
@@ -479,14 +494,50 @@ def __get_frame_names_untrimmed_from_csv_file_for_i3d(annot_text_path, n_frames_
             video_frame_names = utils.file_names(frames_relative_root_path, is_nat_sort=True)
 
             # sample from these frames,在视频中进行采样
-            video_frame_names = __sample_frames_for_i3d(video_frame_names, n_frames_per_video)
+            if is_training:
+                if random_sample:
+                    video_frame_names = __random_sample_frames_for_i3d(video_frame_names, n_frames_per_video)
+                else:
+                    video_frame_names = __sample_frames_for_i3d(video_frame_names, n_frames_per_video)
+            else:
+                video_frame_names = __random_sample_frames_for_i3d(video_frame_names, n_frames_per_video)
             n_frames = len(video_frame_names)
             assert n_frames == n_frames_per_video
 
             #将采样后的视频帧存到词典中
             video_frames_dict[video_id] = video_frame_names
+        sys.stdout.write('\n')
 
     return video_frames_dict
+
+def __random_sample_frames_for_i3d(frames, n_required):
+    # i3d model accepts sequence of 8 frames
+    n_frames = len(frames)  # 该视频的总帧数597
+    segment_length = 8
+    n_segments = int(n_required / segment_length)  # 需要分段的个数256/8=32，需要将帧数分为32段
+    
+    assert n_required % segment_length == 0
+    assert n_frames > segment_length
+    
+    if n_frames < n_required:
+        # 视频帧数小于需要的帧数256，512，1024
+        idces_start = np.random.randint(0, n_frames - segment_length, (n_segments,))
+        idces_start = np.sort(idces_start)
+        idx = []
+        for idx_start in idces_start:
+            idx += np.arange(idx_start, idx_start + segment_length, dtype=np.int).tolist()
+    elif n_frames == n_required:
+        # 相等的时候
+        idx = np.arange(n_required)
+    else:
+        # 大于的时候
+        idces_start = np.random.randint(0, n_frames - segment_length, (n_segments,))
+        idces_start = np.sort(idces_start)
+        idx = []
+        for idx_start in idces_start:
+            idx += np.arange(idx_start, idx_start + segment_length, dtype=np.int).tolist()
+    sampled_frames = np.array(frames)[idx]
+    return sampled_frames
 
 def __sample_frames(frames, n_min, n_max):
     n_f = len(frames)
@@ -731,7 +782,7 @@ def __convert_seconds_to_frame_idx(time_in_sec):
 
 # region Extract Features
 
-def extract_features_i3d_charades(root_Charades_path,n_frames_in):
+def extract_features_i3d_charades(root_Charades_path,n_frames_in,frames_annot_path,concate_feature=False,random_sample=False,is_training= True):
     """
     Extract features from i3d-model
     n_frames_in = 8 * n_frames_out
@@ -740,15 +791,16 @@ def extract_features_i3d_charades(root_Charades_path,n_frames_in):
     """
 
     # n_frames_in = 1024
-    n_frames_out = n_frames_in//8
+    n_frames_out = n_frames_in // 8
 
-    root_path = '../data'
-    frames_annot_path = '%s/Charades/annotation/frames_dict_untrimmed_multi_label_i3d_%d_frames.pkl' % (root_path, n_frames_in) #采样过之后的帧路径
+    root_path = './data'
+    # frames_annot_path = '%s/Charades/annotation/frames_dict_untrimmed_multi_label_i3d_%d_frames.pkl' % (root_path, n_frames_in) #采样过之后的帧路径
     # model_path = '/home/r/renpengzhen/PyTorch/timeception-master/model/i3d_kinetics_model_rgb.pth' #模型存放的位置
     model_path = '%s/Charades/baseline_models/i3d/rgb_charades.pt' % (root_path)  # 模型存放的位置
     frames_root_path = '%s/Charades_v1_rgb' % (root_Charades_path) #所有视频帧存放的位置
     features_root_path = '%s/Charades/features_i3d_pytorch_charades_rgb_mixed_5c_%df' % (root_Charades_path,n_frames_out) #用来存放使用i3d进行特征提取的路径
-    (video_frames_dict_tr, video_frames_dict_te) = utils.pkl_load(frames_annot_path) #导入采样帧词典：包含了训练集和测试集的视频名：帧名列表，('AXIW1', array(['AXIW1-000001.jpg', 'AXIW1-000002.jpg', 'AXIW1-000003.jpg', ..., 'AXIW1-000768.jpg', 'AXIW1-000769.jpg', 'AXIW1-000770.jpg'], dtype='<U16'))
+    sys.stdout.write('\rfeatures_save_path:%s\n'%features_root_path)
+    (video_frames_dict_tr, video_frames_dict_te) = utils.pkl_load(frames_annot_path)
     video_frames_dict = dict() #构建视频帧空词典
     video_frames_dict.update(video_frames_dict_tr)
     video_frames_dict.update(video_frames_dict_te)
@@ -764,7 +816,6 @@ def extract_features_i3d_charades(root_Charades_path,n_frames_in):
     if not os.path.exists(features_root_path):
         os.makedirs(features_root_path)
 
-    t1 = time.time()
     print('extracting training features')
     print('start time: %s' % utils.timestamp())
 
@@ -774,20 +825,29 @@ def extract_features_i3d_charades(root_Charades_path,n_frames_in):
     # aync reader, and get load images for the first video, we will read the first group of videos
     video_group_frames = __get_video_frame_pathes(video_names[0], frames_root_path, video_frames_dict) #存储第一个视频帧的所有地址，是一个np数组类型
     video_reader_tr.load_video_frames_in_batch(video_group_frames)
-    
 
     # load the model
     model = i3d_torch_charades_utils.load_model_i3d_charades_rgb_for_testing(model_path)
 
-    #进行一次forward，打印模型的具体输入输出细节
-    print('input_size=(3, 8, 224, 224)')
-    print(torchsummary.summary(model, input_size=(3, 8, 224, 224)))
-
-
     # loop on list of videos，对整个视频数据集进行操作
+    t0 = time.time()
     for idx_video in range(n_videos):
         video_num = idx_video + 1
         video_name = video_names[idx_video]
+
+        # path to save the features，保存特征
+        video_features_path = '%s/%s.pkl' % (features_root_path, video_name)  # 即将保存特征的路径
+        if is_training:
+            if random_sample:
+                pass
+            else:
+                pass
+                #如果不是随机采样，就判断文件中是否已经存在该特征，存在就不再重复提取
+                #如果是随机采样的话，需要对特征进行覆盖
+                # if os.path.exists(video_features_path):
+                #     print('... features for video already exist: %s.pkl' % (video_name))
+                #     continue
+        
         begin_num = 0
         end_num = n_videos
 
@@ -796,14 +856,11 @@ def extract_features_i3d_charades(root_Charades_path,n_frames_in):
                 continue
 
         # wait until the image_batch is loaded
-        t1 = time.time()
         while video_reader_tr.is_busy():
             time.sleep(0.1)
-        t2 = time.time()
-        duration_waited = t2 - t1
-
-        print('... video %04d, %04d, waited: %.02f' % (video_num, n_videos, duration_waited))
-
+        t1 = time.time()
+        duration_waited = t1 - t0
+        sys.stdout.write('\r... video %04d/%04d, waited: %.02f' % (video_num, n_videos, duration_waited))
         # get the frames
         frames = video_reader_tr.get_images()  # (G*T*N, 224, 224, 3)，这个我觉得是第一个视频里面裁剪过之后的帧图片
 
@@ -815,40 +872,33 @@ def extract_features_i3d_charades(root_Charades_path,n_frames_in):
         if len(frames) != n_frames_in:
             raise ('... ... wrong n frames: %s' % (video_name))
 
-        # reshape to make one dimension carries the frames / segment, while the other dimesion represents the batch size
-        frames = np.reshape(frames, (n_frames_out, n_frames_per_segment, 224, 224, 3))  # (T, 8, 224, 224, 3)，T实际上就是视频段，即超级帧的个数
-
+        if concate_feature:
+            frames = np.reshape(frames, (1, n_frames_in, 224, 224, 3))  #对采样的帧一起进行特征提取, (1, T*8, 224, 224, 3)，T实际上就是视频段，即超级帧的个数
+        else:
+            frames = np.reshape(frames, (n_frames_out, n_frames_per_segment, 224, 224, 3))  # (T, 8, 224, 224, 3)，T实际上就是视频段，即超级帧的个数
         # transpose to have the channel_first (T, 8, 224, 224, 3) => (T, 3, 8, 224, 224)
         frames = np.transpose(frames, (0, 4, 1, 2, 3))
-
         # prepare input variable
         with torch.no_grad():
             # extract features
-            input_var = torch.from_numpy(frames).cuda() #(T, 3, 8, 224, 224)，T=128,64,32
-            output_var = model(input_var) #提取特征 torch.Size([128, 1024, 1, 7, 7])
+            input_var = torch.from_numpy(frames).cuda()  # (T, 3, 8, 224, 224)，T=128,64,32
+            output_var = model(input_var)  # 提取特征 torch.Size([128, 1024, 1, 7, 7])
             output_var = output_var.cpu()
             features = output_var.data.numpy()  # (T, 1024, 1, 7, 7)
             # don't forget to clean up variables
             del input_var
             del output_var
-
-        # transpose to have the channel_last
-        features = np.transpose(features, (0, 2, 3, 4, 1))  # (T, 1, 7, 7, 1024)
-
+        if concate_feature:
+            features = np.transpose(features, (2, 0, 3, 4, 1))  # (T, 1, 7, 7, 1024)
+        else:
+            features = np.transpose(features, (0, 2, 3, 4, 1))  # (T, 1, 7, 7, 1024)
         # reshape to have the features for each video in a separate dimension
         features = np.squeeze(features, axis=1)  # (T, 7, 7, 1024)，T=128,64,32
-
-        # path to save the features，保存特征
-        video_features_path = '%s/%s.pkl' % (features_root_path, video_name) #即将保存特征的路径
-        if os.path.exists(video_features_path):
-            print ('... features for video already exist: %s.pkl' % (video_name))
-            continue
-
         # save features
         utils.pkl_dump(features, video_features_path, is_highest=True)
 
     t2 = time.time()
-    print('... finish extracting features in %d seconds' % (t2 - t1))
+    print('\n... finish extracting features in %d seconds' % (t2 - t0))
 
 def __relative_to_absolute_pathes(relative_pathes):
     # change relative to absolute pathes
@@ -910,6 +960,6 @@ if __name__ == '__main__':
     # root_Charades_path = '/home/r/renpengzhen/Datasets/Charades' #1070服务器
     root_Charades_path = '/data/renpengzhen/data'  # 24G服务器
     n_frames_in = 512
-    _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d(n_frames_in,root_Charades_path)
-    extract_features_i3d_charades(root_Charades_path,n_frames_in)
+    annotation_path = _13_prepare_annotation_frames_per_video_dict_untrimmed_multi_label_for_i3d(n_frames_in,root_Charades_path)
+    extract_features_i3d_charades(root_Charades_path,n_frames_in, annotation_path)
     
