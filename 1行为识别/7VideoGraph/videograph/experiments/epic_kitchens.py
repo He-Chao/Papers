@@ -54,7 +54,7 @@ def train_model_videograph():
 
     model_type = 'i3d_rgb'
     feature_type = 'mixed_5c'
-    n_nodes = 128
+    n_nodes = 128 #节点的个数
     n_timesteps = 64
     n_frames_per_segment = 8
     n_frames_per_video = n_timesteps * n_frames_per_segment
@@ -72,7 +72,7 @@ def train_model_videograph():
 
     # either load nodes, or generate them on the fly, but remeber to save them, as you need them in test time
     # nodes = utils.pkl_load(nodes_path)
-    nodes = utils.generate_centroids(n_nodes, n_channels)
+    nodes = utils.generate_centroids(n_nodes, n_channels) #生成初始的Y.size()=(N x C) = (128,1024)
 
     print ('--- start time')
     print (datetime.datetime.now())

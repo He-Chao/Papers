@@ -31,20 +31,39 @@ VideoGraph: Recognizing Minutes-Long Human Activities in Videos
 
 ## 学习图结点nodes
 
+### Node Attention Block
+
+![image-20200107201720957](VideoGraph.assets/image-20200107201720957.png)
+
+### 公式表述
+
+![image-20200107221935968](VideoGraph.assets/image-20200107221935968.png)
+
+### 内部组件解释
+
 复杂动作由多个单元简单动作组成，将简单的单元动作作为节点nodes
 
-如何将产生的特征$x_i$与节点Y相关联？
+如何将产生的特征$x_i$与节点`Y`相关联？
 
-- node attention block来进行关联：
+- `node attention block`来进行关联：
 
   - 得到$x_1$: $s_1->x_1 (8\times H \times W \times C  -> 1\times 7\times 7\times 1024)$,$s_i$是第i段视频
+  
   - ![image-20200107222752057](%E7%AC%94%E8%AE%B0.assets/image-20200107222752057.png)是一组潜在特征，也是N个节点
-  - ![image-20200107223023138](%E7%AC%94%E8%AE%B0.assets/image-20200107223023138.png)MLP操作：增加可学习性
-  - ![image-20200107223215200](%E7%AC%94%E8%AE%B0.assets/image-20200107223215200.png)dot product操作：增加非线性用来计算每个视频段特征$x_i$与单元动作$y_i$之间的相似度
-
-  ![image-20200107201720957](%E7%AC%94%E8%AE%B0.assets/image-20200107201720957.png)
-
-  ![image-20200107221935968](%E7%AC%94%E8%AE%B0.assets/image-20200107221935968.png)
+  
+- ![image-20200107223023138](%E7%AC%94%E8%AE%B0.assets/image-20200107223023138.png)$MLP$操作：增加可学习性
+  
+- ![image-20200107223215200](%E7%AC%94%E8%AE%B0.assets/image-20200107223215200.png)$dot product$操作：使用$\softmax()$增加非线性，用来计算每个视频段特征$x_i$与单元动作$Y$之间的关联度。
+  
+    权重计算意义的解释：
+  
+    <img src="VideoGraph.assets/%E5%9B%BE%E7%89%871.png" style="zoom: 50%;" />
+  
+    
+  
+  > - 一个小问题：Y是如何产生的？
+  >
+  >   Y是随机产生。`centroids = np.random.rand(n, dim)`
 
 ## Learning The Graph Edges  学习图的边
 
