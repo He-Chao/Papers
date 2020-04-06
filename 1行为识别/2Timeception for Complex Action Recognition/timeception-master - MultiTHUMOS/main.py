@@ -51,7 +51,9 @@ def default_config(n_timestep_in):
 if __name__ == '__main__':
     n_timestep_in = 128
     # data_path = '/home/r/renpengzhen/Datasets/Charades' #原始数据集及提取的特征存放的路径
-    data_path = '/media/amax/RPZ/Datasets/MultiTHUMOS/i3d_feature_con' #原始数据集及提取的特征存放的路径
+    data_path = '/data/renpengzhen/data/MultiTHUMOS/i3d_feature' #原始数据集及提取的特征存放的路径
+    
+    # data_path = '/media/amax/RPZ/Datasets/MultiTHUMOS/i3d_feature_con' #原始数据集及提取的特征存放的路径
     default_config_file = default_config(n_timestep_in)
     train_pytorch_concate_feature.__main(data_path, default_config_file, concate_feature=False, random_sample=False) # 串联帧一起提取特征进行训练
     exit()
